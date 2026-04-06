@@ -403,6 +403,9 @@ window.clearAllData = function() {
 
 // ============ EVENT LISTENERS ============
 document.addEventListener('DOMContentLoaded', function() {
+    initMobileMenu();  // Initialize hamburger menu
+    window.addEventListener('resize', handleResize);  // Handle window resize
+    handleResize();  // Set initial state
     // Buy ticket buttons
     document.querySelectorAll('.buy-ticket').forEach(btn => {
         btn.addEventListener('click', () => {
