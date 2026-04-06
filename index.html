@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR & MISS NUASA 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                MR & MISS <span>NUASA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#contestants">Contestants</a>
+                <a href="#results">Results</a>
+                <a href="#tickets">Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>MR & MISS <span class="highlight">NUASA</span></h1>
+            <p>Vote for your favorite contestant or secure your ticket now!</p>
+            <div class="hero-buttons">
+                <a href="#tickets" class="btn-primary"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
+                <a href="#contestants" class="btn-secondary"><i class="fas fa-heart"></i> Vote Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contestants Section -->
+    <section id="contestants" class="contestants">
+        <div class="container">
+            <h2>Meet Our <span class="highlight">Contestants</span></h2>
+            <p class="section-subtitle">₦50 per vote — vote as many times as you want!</p>
+            <div class="contestants-grid" id="contestantsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Live Results -->
+    <section id="results" class="results">
+        <div class="container">
+            <h2>Live <span class="highlight">Results</span></h2>
+            <div class="results-container" id="resultsContainer"></div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="tickets">
+        <div class="container">
+            <h2>Event <span class="highlight">Tickets</span></h2>
+            <div class="tickets-grid">
+                <div class="ticket-card">
+                    <h3>Regular</h3>
+                    <div class="price">₦1,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> General seating</li>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                    </ul>
+                    <button class="btn-secondary buy-ticket" data-price="1000" data-type="Regular">Buy Ticket →</button>
+                </div>
+                
+                <div class="ticket-card featured">
+                    <div class="popular-badge">Popular</div>
+                    <h3>VIP</h3>
+                    <div class="price">₦5,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Front row seating</li>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                    </ul>
+                    <button class="btn-primary buy-ticket" data-price="5000" data-type="VIP">Buy Ticket →</button>
+                </div>
+                
+                <div class="ticket-card">
+                    <h3>Table (4 seats)</h3>
+                    <div class="price">₦40,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                        <li><i class="fas fa-check"></i> Reserved Table</li>
+                        <li><i class="fas fa-check"></i> Refreshments </li>
+                    </ul>
+                    <button class="btn-secondary buy-ticket" data-price="40000" data-type="Table">Buy Ticket →</button>
+                </div>
+
+                <div class="ticket-card">
+                    <h3>Table (6 seats)</h3>
+                    <div class="price">₦50,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                        <li><i class="fas fa-check"></i> Reserved Table</li>
+                        <li><i class="fas fa-check"></i> Refreshments </li>
+                    </ul>
+                    <button class="btn-secondary buy-ticket" data-price="50000" data-type="Table">Buy Ticket →</button>
+                </div>
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <!-- Ticket Purchase Modal -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Purchase <span id="ticketTypeDisplay"></span> Ticket</h3>
+            <p class="ticket-price">Price: ₦<span id="ticketPriceDisplay"></span></p>
+            
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" id="buyerName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address:</label>
+                    <input type="email" id="buyerEmail" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number:</label>
+                    <input type="tel" id="buyerPhone" required placeholder="08012345678">
+                </div>
+                <div class="form-group">
+                    <p class="ticket-note">
+                        <i class="fas fa-info-circle"></i>
+                        You'll receive a UNIQUE ticket code. This code can only be used ONCE at the entrance.
+                    </p>
+                </div>
+                <button type="submit" class="btn-primary">Proceed to Payment →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Verification Modal (with Login) -->
+    <div id="verifyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <!-- Login Panel -->
+            <div id="loginSection">
+                <h3><i class="fas fa-lock"></i> Staff Login</h3>
+                <p>Enter your credentials to access ticket verification</p>
+                
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" id="loginUsername" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password">
+                </div>
+                
+                <div id="loginError" class="login-error" style="display: none;"></div>
+                
+                <button id="loginBtn" class="btn-primary">Login →</button>
+            </div>
+            
+            <!-- Verification Panel (hidden until login) -->
+            <div id="verifySection" style="display: none;">
+                <div class="verify-header">
+                    <h3><i class="fas fa-qrcode"></i> Verify Tickets</h3>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
+                </div>
+                <p>Enter ticket code to verify and grant entry</p>
+                
+                <div class="form-group">
+                    <label>Ticket Code:</label>
+                    <input type="text" id="ticketCodeInput" placeholder="e.g., NUSA-123456" style="text-transform: uppercase;">
+                </div>
+                
+                <button id="verifyBtn" class="btn-primary">Verify Ticket →</button>
+                
+                <div id="verificationResult" class="verification-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voting Modal -->
+    <div id="voteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Vote for <span id="contestantName"></span></h3>
+            <p class="vote-price">₦50 per vote</p>
+            <div class="vote-input-group">
+                <label for="voteCount">Number of votes:</label>
+                <input type="number" id="voteCount" min="1" max="1000" value="1">
+                <p class="total-amount">Total: ₦<span id="totalAmount">50</span></p>
+            </div>
+            <button id="payVoteBtn" class="btn-primary">Continue to Payment →</button>
+        </div>
+    </div>
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="sponsors">
+        <div class="container">
+            <h2>Our <span class="highlight">Sponsors</span></h2>
+            <p class="section-subtitle">Proud partners supporting MR & MISS NUASA</p>
+            
+            <div class="sponsors-grid" id="sponsorsGrid">
+                <!-- Sponsors will be loaded here -->
+            </div>
+            
+            <!-- Sponsorship Inquiry -->
+            <div class="sponsor-inquiry">
+                <i class="fas fa-handshake"></i>
+                <h3>Become a Sponsor</h3>
+                <p>Partner with us and showcase your brand to our audience</p>
+                <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring%20MR%20%26%20MISS%20NUASA" 
+                   class="whatsapp-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
+                </a>
+            </div>
+             <!-- Staff Verification Button -->
+            <div class="verify-section">
+                <button id="verifyTicketBtn" class="btn-verify">
+                    <i class="fas fa-shield-alt"></i> Staff Verification Portal
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 MR & MISS NUASA. All rights reserved.</p>
+            <p>Web Dev by © Daniel OT .</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
