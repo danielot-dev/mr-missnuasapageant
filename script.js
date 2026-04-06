@@ -308,6 +308,7 @@ function renderContestants() {
     });
 }
 
+
 // ============ TICKET MODAL ============
 let currentTicketType = null;
 let currentTicketPrice = null;
@@ -403,9 +404,6 @@ window.clearAllData = function() {
 
 // ============ EVENT LISTENERS ============
 document.addEventListener('DOMContentLoaded', function() {
-    initMobileMenu();  // Initialize hamburger menu
-    window.addEventListener('resize', handleResize);  // Handle window resize
-    handleResize();  // Set initial state
     // Buy ticket buttons
     document.querySelectorAll('.buy-ticket').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -612,43 +610,39 @@ window.viewSponsors = function() {
     console.table(sponsors);
     return sponsors;
 };
-// ============ HAMBURGER MENU FOR MOBILE ============
-function initMobileMenu() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+
+// ============ HAMBURGER MENU FIX ============
+const mobileMenuBtn = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+function toggleMobileMenu() {
+    if (!navLinks) return;
     
-    if (!mobileMenuBtn || !navLinks) return;
-    
-    mobileMenuBtn.addEventListener('click', function() {
-        if (navLinks.style.display === 'flex') {
-            navLinks.style.display = 'none';
-        } else {
-            navLinks.style.display = 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.backgroundColor = 'white';
-            navLinks.style.padding = '1.5rem';
-            navLinks.style.gap = '1rem';
-            navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            navLinks.style.borderBottom = '2px solid rgba(212, 175, 55, 0.3)';
-            navLinks.style.zIndex = '999';
-        }
-    });
-    
-    // Close menu when clicking a link (for better UX)
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.style.display = 'none';
-        });
-    });
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '70px';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.backgroundColor = 'white';
+        navLinks.style.padding = '1.5rem';
+        navLinks.style.gap = '1rem';
+        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        navLinks.style.borderBottom = '2px solid rgba(212, 175, 55, 0.3)';
+        navLinks.style.zIndex = '999';
+    }
 }
 
-// Also handle window resize - reset menu display
-function handleResize() {
-    const navLinks = document.querySelector('.nav-links');
+function closeMobileMenu() {
+    if (navLinks && window.innerWidth <= 768) {
+        navLinks.style.display = 'none';
+    }
+}
+
+function resetMobileMenu() {
     if (window.innerWidth > 768) {
         if (navLinks) {
             navLinks.style.display = 'flex';
@@ -662,12 +656,24 @@ function handleResize() {
             navLinks.style.boxShadow = 'none';
         }
     } else {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks && window.getComputedStyle(navLinks).display !== 'flex') {
+        if (navLinks && navLinks.style.display !== 'flex') {
             navLinks.style.display = 'none';
         }
     }
 }
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+}
+
+if (navLinks) {
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+}
+
+window.addEventListener('resize', resetMobileMenu);
+resetMobileMenu();
 // Initialize
 loadData();
 renderSponsors();
