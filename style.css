@@ -30,6 +30,27 @@ nav {
     align-items: center;
 }
 
+.mobile-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #D4AF37;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-container {
+        position: relative;
+    }
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
