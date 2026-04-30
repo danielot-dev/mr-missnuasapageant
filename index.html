@@ -11,24 +11,24 @@
 <body>
     <!-- Navigation -->
     <nav>
-    <div class="nav-container">
-        <div class="logo">
-            <i class="fas fa-crown"></i>
-            MR & MISS <span>NUASA</span>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                MR & MISS <span>NUASA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#contestants">Contestants</a>
+                <a href="#results">Results</a>
+                <a href="#awards">Awards</a>
+                <a href="#tickets">Tickets</a>
+                <a href="#sponsors">Sponsors</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="#home" class="active">Home</a>
-            <a href="#contestants">Contestants</a>
-            <a href="#results">Results</a>
-            <a href="#tickets">Tickets</a>
-            <a href="#sponsors">Sponsors</a>
-        </div>
-        <div class="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</nav>
-            
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -39,7 +39,7 @@
             <div class="hero-buttons">
                 <a href="#tickets" class="btn-primary"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
                 <a href="#contestants" class="btn-secondary"><i class="fas fa-heart"></i> Vote Now</a>
-                <a href="#sponsors" class="btn-primary"> View Sponsors</a>
+                <a href="#sponsors" class="btn-primary">View Sponsors</a>
             </div>
         </div>
     </section>
@@ -58,6 +58,94 @@
         <div class="container">
             <h2>Live <span class="highlight">Results</span></h2>
             <div class="results-container" id="resultsContainer"></div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2>Awards & <span class="highlight">Prizes</span></h2>
+            <p class="section-subtitle">Grand prizes for our winners</p>
+            
+            <div class="awards-grid">
+                <div class="award-card gold">
+                    <div class="award-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="award-title">MR & MISS NUASA 2026</div>
+                    <div class="award-prize">₦500,000 Cash Prize</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-trophy"></i> Custom Crown & Sash</li>
+                        <li><i class="fas fa-gift"></i> Brand Endorsement Deal</li>
+                        <li><i class="fas fa-plane"></i> All-Expense Paid Trip</li>
+                        <li><i class="fas fa-certificate"></i> Certificate of Excellence</li>
+                    </ul>
+                    <div class="award-badge">GRAND PRIZE</div>
+                </div>
+
+                <div class="award-card silver">
+                    <div class="award-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="award-title">1st Runner Up</div>
+                    <div class="award-prize">₦250,000 Cash Prize</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-medal"></i> Silver Crown & Sash</li>
+                        <li><i class="fas fa-gift"></i> Brand Merchandise</li>
+                        <li><i class="fas fa-certificate"></i> Certificate of Recognition</li>
+                    </ul>
+                </div>
+
+                <div class="award-card bronze">
+                    <div class="award-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="award-title">2nd Runner Up</div>
+                    <div class="award-prize">₦100,000 Cash Prize</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-medal"></i> Bronze Crown & Sash</li>
+                        <li><i class="fas fa-gift"></i> Brand Merchandise</li>
+                        <li><i class="fas fa-certificate"></i> Certificate of Recognition</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Special Awards -->
+            <div class="special-awards">
+                <h3>Special Recognition Awards</h3>
+                <div class="special-grid">
+                    <div class="special-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Miss Congeniality</h4>
+                        <p>₦50,000 + Gift Hamper</p>
+                    </div>
+                    <div class="special-card">
+                        <i class="fas fa-camera"></i>
+                        <h4>Best Photogenic</h4>
+                        <p>₦50,000 + Professional Photoshoot</p>
+                    </div>
+                    <div class="special-card">
+                        <i class="fas fa-microphone-alt"></i>
+                        <h4>Best Talent</h4>
+                        <p>₦50,000 + Feature Opportunity</p>
+                    </div>
+                    <div class="special-card">
+                        <i class="fas fa-tshirt"></i>
+                        <h4>Best Traditional Attire</h4>
+                        <p>₦50,000 + Designer Outfit</p>
+                    </div>
+                    <div class="special-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>Mr Popularity</h4>
+                        <p>₦50,000 + Brand Deal</p>
+                    </div>
+                    <div class="special-card">
+                        <i class="fas fa-smile"></i>
+                        <h4>Mr Congeniality</h4>
+                        <p>₦50,000 + Gift Hamper</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -93,7 +181,7 @@
                     <ul>
                         <li><i class="fas fa-check"></i> Event access</li>
                         <li><i class="fas fa-check"></i> Reserved Table</li>
-                        <li><i class="fas fa-check"></i> Refreshments </li>
+                        <li><i class="fas fa-check"></i> Refreshments</li>
                     </ul>
                     <button class="btn-secondary buy-ticket" data-price="40000" data-type="Table">Buy Ticket →</button>
                 </div>
@@ -104,13 +192,11 @@
                     <ul>
                         <li><i class="fas fa-check"></i> Event access</li>
                         <li><i class="fas fa-check"></i> Reserved Table</li>
-                        <li><i class="fas fa-check"></i> Refreshments </li>
+                        <li><i class="fas fa-check"></i> Refreshments</li>
                     </ul>
                     <button class="btn-secondary buy-ticket" data-price="50000" data-type="Table">Buy Ticket →</button>
                 </div>
             </div>
-            
-           
         </div>
     </section>
 
@@ -203,6 +289,7 @@
             <button id="payVoteBtn" class="btn-primary">Continue to Payment →</button>
         </div>
     </div>
+
     <!-- Sponsors Section -->
     <section id="sponsors" class="sponsors">
         <div class="container">
@@ -223,7 +310,8 @@
                     <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
                 </a>
             </div>
-             <!-- Staff Verification Button -->
+            
+            <!-- Staff Verification Button -->
             <div class="verify-section">
                 <button id="verifyTicketBtn" class="btn-verify">
                     <i class="fas fa-shield-alt"></i> Staff Verification Portal
@@ -231,6 +319,7 @@
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
