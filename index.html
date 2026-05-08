@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR & MISS NUASA 2026</title>
+    <title>MR & MISS NUASA 2026 | Awards & Voting</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,7 +20,8 @@
                 <a href="#home" class="active">Home</a>
                 <a href="#contestants">Contestants</a>
                 <a href="#results">Results</a>
-                <a href="#awards">Awards</a>
+                <a href="#awards">Prizes</a>
+                <a href="#special-awards">Special Awards</a>
                 <a href="#tickets">Tickets</a>
                 <a href="#sponsors">Sponsors</a>
             </div>
@@ -38,8 +39,8 @@
             <p>Vote for your favorite contestant or secure your ticket now!</p>
             <div class="hero-buttons">
                 <a href="#tickets" class="btn-primary"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
-                <a href="#contestants" class="btn-secondary"><i class="fas fa-heart"></i> Vote Now</a>
-                <a href="#sponsors" class="btn-primary">View Sponsors</a>
+                <a href="#contestants" class="btn-secondary"><i class="fas fa-heart"></i> Vote Contestants</a>
+                <a href="#special-awards" class="btn-primary"><i class="fas fa-trophy"></i> Special Awards</a>
             </div>
         </div>
     </section>
@@ -61,7 +62,35 @@
         </div>
     </section>
 
-    <!-- Awards Section -->
+    <!-- Special Awards Section -->
+    <section id="special-awards" class="special-awards-section">
+        <div class="container">
+            <h2>Special <span class="highlight">Awards</span></h2>
+            <p class="section-subtitle">Vote for your favorites in each category — ₦50 per vote</p>
+            
+            <div class="awards-categories-grid" id="awardsCategoriesGrid">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Awards Voting Modal -->
+    <div id="specialVoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Vote for <span id="specialContestantName"></span></h3>
+            <p class="vote-category" id="specialCategoryName"></p>
+            <p class="vote-price">₦50 per vote</p>
+            <div class="vote-input-group">
+                <label for="specialVoteCount">Number of votes:</label>
+                <input type="number" id="specialVoteCount" min="1" max="1000" value="1">
+                <p class="total-amount">Total: ₦<span id="specialTotalAmount">50</span></p>
+            </div>
+            <button id="paySpecialVoteBtn" class="btn-primary">Continue to Payment →</button>
+        </div>
+    </div>
+
+    <!-- Awards & Prizes Section -->
     <section id="awards" class="awards">
         <div class="container">
             <h2>Awards & <span class="highlight">Prizes</span></h2>
@@ -76,30 +105,51 @@
                     <div class="award-prize">$100 Cash Prize</div>
                     <ul class="award-list">
                         <li><i class="fas fa-trophy"></i> Custom Crown & Sash</li>
-                        <li><i class="fas fa-star"></i> Free access to all school events </li>
+                        <li><i class="fas fa-star"></i> Free access to all school events</li>
                         <li><i class="fas fa-plane"></i> All-Expense Paid visit to Magic land</li>
                         <li><i class="fas fa-gift"></i> Brand Endorsement Deal</li>
-                        <li><i class="fas fa-star"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography?">Dubbies Photogarphy</a></li>
-                        <li><i class="fas fa-star"></i> One-month of free hair-cuts Courtesy: Celebrity Barber </li>
-                        <li><i class="fas fa-star"></i> One-month of free Nails Courtesy: Damsel Alteria </li>
+                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
+                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
+                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
                     </ul>
                     <div class="award-badge">GRAND PRIZE</div>
                 </div>
 
                 <div class="award-card silver">
                     <div class="award-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-dove"></i>
                     </div>
                     <div class="award-title">Mr & Miss Peace</div>
-                    <div class="award-prize"></div>
                     <ul class="award-list">
                         <li><i class="fas fa-medal"></i> Silver Crown & Sash</li>
-                        <li><i class="fas fa-star"></i> Free access to all school events </li>
-                        <li><i class="fas fa-star"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography?">Dubbies Photogarphy</a></li>
-                        <li><i class="fas fa-star"></i> One-month of free hair-cuts Courtesy: Celebrity Barber </li>
-                        <li><i class="fas fa-star"></i> One-month of free Nails Courtesy: Damsel Alteria </li>
+                        <li><i class="fas fa-star"></i> Free access to all school events</li>
+                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
+                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
+                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
                     </ul>
                 </div>
+            </div>
+            
+            <!-- Special Awards Prize Cards -->
+            <div class="special-prizes">
+                <h3>Special Awards <span class="highlight">Prizes</span></h3>
+                <div class="special-prizes-grid">
+                    <div class="prize-card">
+                        <i class="fas fa-medal"></i>
+                        <h4>Category Winners</h4>
+                        <p>Custom Certificate & Recognition</p>
+                    </div>
+                    <div class="prize-card">
+                        <i class="fas fa-gift"></i>
+                        <h4>Gift Packs</h4>
+                        <p>Branded merchandise & surprise gifts</p>
+                    </div>
+                    <div class="prize-card">
+                        <i class="fas fa-camera"></i>
+                        <p>Free professional photoshoot</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -190,11 +240,9 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             
-            <!-- Login Panel -->
             <div id="loginSection">
                 <h3><i class="fas fa-lock"></i> Staff Login</h3>
                 <p>Enter your credentials to access ticket verification</p>
-                
                 <div class="form-group">
                     <label>Username:</label>
                     <input type="text" id="loginUsername" placeholder="Enter username">
@@ -203,33 +251,27 @@
                     <label>Password:</label>
                     <input type="password" id="loginPassword" placeholder="Enter password">
                 </div>
-                
                 <div id="loginError" class="login-error" style="display: none;"></div>
-                
                 <button id="loginBtn" class="btn-primary">Login →</button>
             </div>
             
-            <!-- Verification Panel (hidden until login) -->
             <div id="verifySection" style="display: none;">
                 <div class="verify-header">
                     <h3><i class="fas fa-qrcode"></i> Verify Tickets</h3>
                     <button id="logoutBtn" class="logout-btn">Logout</button>
                 </div>
                 <p>Enter ticket code to verify and grant entry</p>
-                
                 <div class="form-group">
                     <label>Ticket Code:</label>
                     <input type="text" id="ticketCodeInput" placeholder="e.g., NUSA-123456" style="text-transform: uppercase;">
                 </div>
-                
                 <button id="verifyBtn" class="btn-primary">Verify Ticket →</button>
-                
                 <div id="verificationResult" class="verification-result"></div>
             </div>
         </div>
     </div>
 
-    <!-- Voting Modal -->
+    <!-- Voting Modal for Main Contestants -->
     <div id="voteModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -250,11 +292,8 @@
             <h2>Our <span class="highlight">Sponsors</span></h2>
             <p class="section-subtitle">Proud partners supporting MR & MISS NUASA</p>
             
-            <div class="sponsors-grid" id="sponsorsGrid">
-                <!-- Sponsors will be loaded here -->
-            </div>
+            <div class="sponsors-grid" id="sponsorsGrid"></div>
             
-            <!-- Sponsorship Inquiry -->
             <div class="sponsor-inquiry">
                 <i class="fas fa-handshake"></i>
                 <h3>Become a Sponsor</h3>
@@ -265,7 +304,6 @@
                 </a>
             </div>
             
-            <!-- Staff Verification Button -->
             <div class="verify-section">
                 <button id="verifyTicketBtn" class="btn-verify">
                     <i class="fas fa-shield-alt"></i> Staff Verification Portal
@@ -278,11 +316,10 @@
     <footer>
         <div class="footer-content">
             <p>© 2026 MR & MISS NUASA. All rights reserved.</p>
-            <p>Web Dev by © Daniel OT .</p>
+            <p>Web Dev by © Daniel OT.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
