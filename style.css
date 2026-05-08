@@ -1265,3 +1265,416 @@ footer {
         min-width: auto;
     }
 }
+/* ============ SPONSORS CAROUSEL SECTION ============ */
+.sponsors {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #1a1a2e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsors::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #D4AF37, #FFD700, #D4AF37, transparent);
+}
+
+.sponsors .container {
+    position: relative;
+    z-index: 2;
+}
+
+.sponsors h2 {
+    color: white;
+}
+
+.sponsors h2 .highlight {
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.sponsors .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Main Carousel Container */
+.sponsor-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+/* Gradient Overlays for fading edges */
+.sponsor-carousel-container::before,
+.sponsor-carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.sponsor-carousel-container::before {
+    left: 0;
+    background: linear-gradient(90deg, #1a1a2e 0%, transparent 100%);
+}
+
+.sponsor-carousel-container::after {
+    right: 0;
+    background: linear-gradient(-90deg, #1a1a2e 0%, transparent 100%);
+}
+
+/* Carousel Track */
+.sponsor-carousel {
+    display: flex;
+    gap: 3rem;
+    animation: scrollSponsors 30s linear infinite;
+    width: fit-content;
+}
+
+/* Pause animation on hover */
+.sponsor-carousel-container:hover .sponsor-carousel {
+    animation-play-state: paused;
+}
+
+/* Sponsor Card in Carousel */
+.sponsor-carousel-item {
+    flex-shrink: 0;
+    width: 180px;
+    height: 140px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsor-carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.sponsor-carousel-item:hover::before {
+    left: 100%;
+}
+
+.sponsor-carousel-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+    border-color: #D4AF37;
+}
+
+.sponsor-logo-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+}
+
+.sponsor-logo-wrapper i {
+    font-size: 3rem;
+    color: #D4AF37;
+}
+
+.sponsor-logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sponsor-carousel-item h4 {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #1a1a2e;
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+}
+
+.sponsor-level {
+    font-size: 0.7rem;
+    color: #D4AF37;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@keyframes scrollSponsors {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Duplicate row for seamless scrolling */
+.sponsor-carousel-duplicate {
+    display: flex;
+    gap: 3rem;
+}
+
+/* Sponsors Grid (Fallback for no sponsors) */
+.sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.sponsor-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    min-width: 180px;
+    transition: all 0.3s;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+    border-color: #D4AF37;
+}
+
+.sponsor-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #fff9f0, #ffffff);
+    border-radius: 50%;
+}
+
+.sponsor-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sponsor-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+.sponsor-card p {
+    font-size: 0.8rem;
+    color: #D4AF37;
+    font-weight: 600;
+}
+
+/* Sponsor Inquiry Section - Enhanced */
+.sponsor-inquiry {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+    border-radius: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.sponsor-inquiry i {
+    font-size: 3rem;
+    color: #D4AF37;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.sponsor-inquiry h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.sponsor-inquiry p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-link:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-link i {
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+    animation: none;
+}
+
+/* Sponsor Stats Section */
+.sponsor-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #D4AF37;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Admin Sponsor Controls */
+.admin-sponsor-controls {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.add-sponsor-btn {
+    background: transparent;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    padding: 0.6rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-sponsor-btn:hover {
+    background: #D4AF37;
+    color: #1a1a2e;
+}
+
+/* Empty Sponsors Message */
+.empty-sponsors {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 2px dashed rgba(212, 175, 55, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.empty-sponsors i {
+    font-size: 3rem;
+    color: #D4AF37;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.empty-sponsors p {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.empty-sponsors span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sponsor-carousel-item {
+        width: 140px;
+        height: 120px;
+    }
+    
+    .sponsor-logo-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .sponsor-logo-wrapper i {
+        font-size: 2rem;
+    }
+    
+    .sponsor-carousel-item h4 {
+        font-size: 0.7rem;
+    }
+    
+    .sponsor-level {
+        font-size: 0.6rem;
+    }
+    
+    .sponsor-carousel-container::before,
+    .sponsor-carousel-container::after {
+        width: 50px;
+    }
+    
+    .sponsor-inquiry h3 {
+        font-size: 1.3rem;
+    }
+    
+    .whatsapp-link {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
