@@ -635,14 +635,126 @@ function loadSponsors() {
     } else {
         sponsors = [];
     }
-    renderSponsors();
+    renderSponsorCarousel();
+    updateSponsorStats();
 }
 
 function saveSponsors() {
     localStorage.setItem('nuasaSponsors', JSON.stringify(sponsors));
+    renderSponsorCarousel();
+    updateSponsorStats();
 }
 
-function renderSponsors() {
+function updateSponsorStats() {
+    const statsContainer = document.getElementById('sponsorStats');
+    if (!statsContainer) return;
+    
+    statsContainer.innerHTML = `
+        <div class="stat-card">
+            <div class="stat-number">${sponsors.length}</div>
+            <div class="stat-label">Sponsors</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${sponsors.filter(s => s.level === 'Platinum' || s.level === 'Gold').length}</div>
+            <div class="stat-label">Premium Partners</div>
+        </div>
+    `;
+}
+
+function renderSponsorCarousel() {
+    const carouselContainer = document.getElementById('sponsorCarousel');
+    if (!carouselContainer) return;
+    
+    if (sponsors.length === 0) {
+        carouselContainer.innerHTML = `
+            <div class="empty-sponsors">
+                <i class="fas fa-building"></i>
+                <p>No sponsors yet</p>
+                <span>Be the first to sponsor this event!</span>
+            </div>
+        `;
+        return;
+    }
+    
+    // Create carousel items - duplicate for seamless scrolling
+    const createCarouselItems = () => {
+        return sponsors.map(sponsor => `
+            <div class="sponsor-carousel-item" onclick="window.open('${sponsor.website}', '_blank')">
+                <div class="sponsor-logo-wrapper">
+                    ${sponsor.logoUrl ? 
+                        `<img src="${sponsor.logoUrl}" alt="${sponsor.name}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-building\'></i>'">` : 
+                        `<i class="fas ${getSponsorIcon(sponsor.level)}"></i>`
+                    }
+                </div>
+                <h4>${sponsor.name}</h4>
+                <div class="sponsor-level">${sponsor.level}</div>
+            </div>
+        `).join('');
+    };
+    
+    const items = createCarouselItems();
+    // Double the items for seamless infinite scroll
+    carouselContainer.innerHTML = `
+        <div class="sponsor-carousel">
+            ${items}
+            ${items}
+        </div>
+    `;
+}
+
+function getSponsorIcon(level) {
+    switch(level.toLowerCase()) {
+        case 'platinum': return 'fa-crown';
+        case 'gold': return 'fa-star';
+        case 'silver': return 'fa-medal';
+        case 'bronze': return 'fa-award';
+        default: return 'fa-building';
+    }
+}
+
+// Add Sponsor Function with Modal
+function openAddSponsorModal() {
+    const modal = document.getElementById('addSponsorModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
+
+function closeAddSponsorModal() {
+    const modal = document.getElementById('addSponsorModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.getElementById('sponsorForm').reset();
+    }
+}
+
+function addSponsorFromForm() {
+    const name = document.getElementById('sponsorName').value;
+    const level = document.getElementById('sponsorLevel').value;
+    const website = document.getElementById('sponsorWebsite').value;
+    const logoUrl = document.getElementById('sponsorLogoUrl').value;
+    
+    if (!name || !level || !website) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    const newSponsor = {
+        id: Date.now(),
+        name: name,
+        level: level,
+        website: website,
+        logoUrl: logoUrl || null
+    };
+    
+    sponsors.push(newSponsor);
+    saveSponsors();
+    closeAddSponsorModal();
+    alert(`✅ Added ${name} as a ${level} sponsor!`);
+}
+
+// Also keep the original grid render for fallback
+function renderSponsorsGrid() {
     const sponsorsGrid = document.getElementById('sponsorsGrid');
     if (!sponsorsGrid) return;
     
@@ -660,7 +772,7 @@ function renderSponsors() {
     sponsorsGrid.innerHTML = sponsors.map(s => `
         <div class="sponsor-card" onclick="window.open('${s.website}', '_blank')">
             <div class="sponsor-logo">
-                ${s.logoUrl ? `<img src="${s.logoUrl}" alt="${s.name}">` : `<i class="fas fa-building"></i>`}
+                ${s.logoUrl ? `<img src="${s.logoUrl}" alt="${s.name}">` : `<i class="fas ${getSponsorIcon(s.level)}"></i>`}
             </div>
             <h4>${s.name}</h4>
             <p>${s.level}</p>
@@ -668,9 +780,10 @@ function renderSponsors() {
     `).join('');
 }
 
+// Admin Console Functions
 window.addSponsor = function(name, level, website, logoUrl = null) {
     const newSponsor = {
-        id: sponsors.length + 1,
+        id: Date.now(),
         name: name,
         level: level,
         website: website,
@@ -678,21 +791,30 @@ window.addSponsor = function(name, level, website, logoUrl = null) {
     };
     sponsors.push(newSponsor);
     saveSponsors();
-    renderSponsors();
-    console.log(`✅ Added sponsor: ${name}`);
+    console.log(`✅ Added sponsor: ${name} (${level})`);
     return newSponsor;
 };
 
 window.removeSponsor = function(sponsorId) {
-    sponsors = sponsors.filter(s => s.id !== sponsorId);
-    saveSponsors();
-    renderSponsors();
-    console.log(`✅ Removed sponsor ID: ${sponsorId}`);
+    const sponsor = sponsors.find(s => s.id === sponsorId);
+    if (sponsor && confirm(`Remove ${sponsor.name} from sponsors?`)) {
+        sponsors = sponsors.filter(s => s.id !== sponsorId);
+        saveSponsors();
+        console.log(`✅ Removed sponsor: ${sponsor.name}`);
+    }
 };
 
 window.viewSponsors = function() {
     console.table(sponsors);
     return sponsors;
+};
+
+window.clearAllSponsors = function() {
+    if (confirm('⚠️ Remove ALL sponsors?')) {
+        sponsors = [];
+        saveSponsors();
+        console.log('✅ All sponsors removed');
+    }
 };
 
 // ============ EVENT LISTENERS ============
