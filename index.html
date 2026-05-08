@@ -287,31 +287,97 @@
     </div>
 
     <!-- Sponsors Section -->
-    <section id="sponsors" class="sponsors">
-        <div class="container">
-            <h2>Our <span class="highlight">Sponsors</span></h2>
-            <p class="section-subtitle">Proud partners supporting MR & MISS NUASA</p>
-            
-            <div class="sponsors-grid" id="sponsorsGrid"></div>
-            
-            <div class="sponsor-inquiry">
-                <i class="fas fa-handshake"></i>
-                <h3>Become a Sponsor</h3>
-                <p>Partner with us and showcase your brand to our audience</p>
-                <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring%20MR%20%26%20MISS%20NUASA" 
-                   class="whatsapp-link" target="_blank">
-                    <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
-                </a>
+<section id="sponsors" class="sponsors">
+    <div class="container">
+        <h2>Our <span class="highlight">Sponsors</span> & <span class="highlight">Partners</span></h2>
+        <p class="section-subtitle">Proud partners supporting MR & MISS NUASA 2026</p>
+        
+        <!-- Sponsor Stats -->
+        <div class="sponsor-stats" id="sponsorStats">
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Sponsors</div>
             </div>
-            
-            <div class="verify-section">
-                <button id="verifyTicketBtn" class="btn-verify">
-                    <i class="fas fa-shield-alt"></i> Staff Verification Portal
-                </button>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Premium Partners</div>
             </div>
         </div>
-    </section>
+        
+        <!-- Animated Carousel -->
+        <div class="sponsor-carousel-container">
+            <div id="sponsorCarousel" class="sponsor-carousel-wrapper">
+                <!-- Carousel will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Sponsors Grid (Alternative view for desktop) -->
+        <div class="sponsors-grid" id="sponsorsGrid">
+            <!-- Grid will be loaded here -->
+        </div>
+        
+        <!-- Admin Add Sponsor Button (Only visible to admins via console) -->
+        <div class="admin-sponsor-controls">
+            <button class="add-sponsor-btn" onclick="openAddSponsorModal()">
+                <i class="fas fa-plus"></i> Add Sponsor (Admin)
+            </button>
+        </div>
+        
+        <!-- Sponsorship Inquiry -->
+        <div class="sponsor-inquiry">
+            <i class="fas fa-handshake"></i>
+            <h3>Become a Sponsor Today!</h3>
+            <p>Partner with us and showcase your brand to thousands of attendees</p>
+            <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring%20MR%20%26%20MISS%20NUASA" 
+               class="whatsapp-link" target="_blank">
+                <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
+            </a>
+        </div>
+        
+        <!-- Staff Verification Button -->
+        <div class="verify-section">
+            <button id="verifyTicketBtn" class="btn-verify">
+                <i class="fas fa-shield-alt"></i> Staff Verification Portal
+            </button>
+        </div>
+    </div>
+</section>
 
+<!-- Add Sponsor Modal -->
+<div id="addSponsorModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3><i class="fas fa-handshake"></i> Add New Sponsor</h3>
+        <form id="sponsorForm">
+            <div class="form-group">
+                <label>Sponsor Name *</label>
+                <input type="text" id="sponsorName" required placeholder="e.g., Company Name">
+            </div>
+            <div class="form-group">
+                <label>Sponsorship Level *</label>
+                <select id="sponsorLevel" required>
+                    <option value="Platinum">🏆 Platinum</option>
+                    <option value="Gold">⭐ Gold</option>
+                    <option value="Silver">🥈 Silver</option>
+                    <option value="Bronze">🥉 Bronze</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Website URL *</label>
+                <input type="url" id="sponsorWebsite" required placeholder="https://example.com">
+            </div>
+            <div class="form-group">
+                <label>Logo URL (optional)</label>
+                <input type="url" id="sponsorLogoUrl" placeholder="https://example.com/logo.png">
+                <p class="ticket-note" style="margin-top: 0.5rem;">
+                    <i class="fas fa-info-circle"></i> Leave empty to use a default icon
+                </p>
+            </div>
+            <button type="button" class="btn-primary" onclick="addSponsorFromForm()">Add Sponsor →</button>
+        </form>
+    </div>
+</div>
+    
     <!-- Footer -->
     <footer>
         <div class="footer-content">
