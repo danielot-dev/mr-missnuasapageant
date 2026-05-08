@@ -5,6 +5,24 @@ const ADMIN_PASSWORD = "nuasa2025";
 // ============ CONTESTANTS DATA ============
 let contestants = [];
 
+// ============ SPECIAL AWARDS DATA ============
+const awardCategories = [
+    { id: 1, name: "Most Influential Student", icon: "fa-star-of-life", nominees: [] },
+    { id: 2, name: "Most Popular Student", icon: "fa-fire", nominees: [] },
+    { id: 3, name: "Best Dressed (Male)", icon: "fa-user-tie", nominees: [] },
+    { id: 4, name: "Best Dressed (Female)", icon: "fa-female", nominees: [] },
+    { id: 5, name: "Money Bag of the Year", icon: "fa-sack-dollar", nominees: [] },
+    { id: 6, name: "Hall of Fame", icon: "fa-trophy", nominees: [] },
+    { id: 7, name: "Brand of the Year", icon: "fa-building", nominees: [] },
+    { id: 8, name: "Fastest Rising Brand", icon: "fa-chart-line", nominees: [] },
+    { id: 9, name: "Squad of the Year", icon: "fa-users", nominees: [] },
+    { id: 10, name: "Friend Group of the Year", icon: "fa-user-friends", nominees: [] },
+    { id: 11, name: "Most Supportive Exco", icon: "fa-handshake", nominees: [] },
+    { id: 12, name: "FYN", icon: "fa-gem", nominees: [] },
+    { id: 13, name: "Fresher of the Year", icon: "fa-seedling", nominees: [] },
+    { id: 14, name: "Artist of the Year", icon: "fa-microphone-alt", nominees: [] }
+];
+
 // ============ TICKET SYSTEM ============
 let tickets = {
     sold: [],
@@ -13,6 +31,8 @@ let tickets = {
 
 // ============ SESSION STATE ============
 let isLoggedIn = false;
+let currentSpecialNominee = null;
+let currentSpecialCategory = null;
 
 // ============ LOAD DATA ============
 function loadData() {
@@ -30,10 +50,51 @@ function loadData() {
         tickets = { sold: [], used: [] };
     }
     
+    const savedAwards = localStorage.getItem('nuasaSpecialAwards');
+    if (savedAwards) {
+        const savedData = JSON.parse(savedAwards);
+        awardCategories.forEach((cat, idx) => {
+            if (savedData[idx]) {
+                cat.nominees = savedData[idx].nominees || [];
+            }
+        });
+    } else {
+        // Add sample nominees for demonstration
+        addSampleNominees();
+    }
+    
     loadVotes();
     loadSponsors();
     renderContestants();
     updateResults();
+    renderAwardsCategories();
+}
+
+function addSampleNominees() {
+    const sampleNames = [
+        "John Doe", "Jane Smith", "Michael Lee", "Sarah Johnson", 
+        "David Brown", "Emily Davis", "Chris Wilson", "Amanda Taylor"
+    ];
+    
+    awardCategories.forEach(category => {
+        for (let i = 0; i < 4; i++) {
+            category.nominees.push({
+                id: Date.now() + i + Math.random(),
+                name: sampleNames[Math.floor(Math.random() * sampleNames.length)],
+                votes: Math.floor(Math.random() * 100)
+            });
+        }
+    });
+    saveSpecialAwards();
+}
+
+function saveSpecialAwards() {
+    const toSave = awardCategories.map(cat => ({
+        id: cat.id,
+        name: cat.name,
+        nominees: cat.nominees
+    }));
+    localStorage.setItem('nuasaSpecialAwards', JSON.stringify(toSave));
 }
 
 // ============ TICKET CODE GENERATOR ============
@@ -110,15 +171,12 @@ function handleLogin() {
         isLoggedIn = true;
         loginError.style.display = 'none';
         
-        // Hide login, show verification
         document.getElementById('loginSection').style.display = 'none';
         document.getElementById('verifySection').style.display = 'block';
         
-        // Clear input
         document.getElementById('ticketCodeInput').value = '';
         document.getElementById('verificationResult').innerHTML = '';
         
-        // Focus on ticket input
         setTimeout(() => {
             document.getElementById('ticketCodeInput').focus();
         }, 100);
@@ -131,11 +189,9 @@ function handleLogin() {
 function handleLogout() {
     isLoggedIn = false;
     
-    // Hide verification, show login
     document.getElementById('loginSection').style.display = 'block';
     document.getElementById('verifySection').style.display = 'none';
     
-    // Clear inputs
     document.getElementById('loginUsername').value = '';
     document.getElementById('loginPassword').value = '';
     document.getElementById('ticketCodeInput').value = '';
@@ -146,7 +202,6 @@ function openVerificationModal() {
     const modal = document.getElementById('verifyModal');
     modal.style.display = 'block';
     
-    // Reset to login state
     if (!isLoggedIn) {
         document.getElementById('loginSection').style.display = 'block';
         document.getElementById('verifySection').style.display = 'none';
@@ -221,6 +276,31 @@ function saveVotes() {
     localStorage.setItem('nuasaVotes', JSON.stringify(votesToSave));
 }
 
+function saveSpecialVotes() {
+    const votesToSave = {};
+    awardCategories.forEach(category => {
+        category.nominees.forEach(nominee => {
+            votesToSave[`${category.id}_${nominee.id}`] = nominee.votes;
+        });
+    });
+    localStorage.setItem('nuasaSpecialVotes', JSON.stringify(votesToSave));
+}
+
+function loadSpecialVotes() {
+    const saved = localStorage.getItem('nuasaSpecialVotes');
+    if (saved) {
+        const savedVotes = JSON.parse(saved);
+        awardCategories.forEach(category => {
+            category.nominees.forEach(nominee => {
+                const key = `${category.id}_${nominee.id}`;
+                if (savedVotes[key]) {
+                    nominee.votes = savedVotes[key];
+                }
+            });
+        });
+    }
+}
+
 function saveContestants() {
     localStorage.setItem('nuasaContestants', JSON.stringify(contestants));
 }
@@ -233,6 +313,19 @@ function addVotes(contestantId, voteCount) {
         saveContestants();
         renderContestants();
         updateResults();
+    }
+}
+
+function addSpecialVotes(categoryId, nomineeId, voteCount) {
+    const category = awardCategories.find(c => c.id === categoryId);
+    if (category) {
+        const nominee = category.nominees.find(n => n.id === nomineeId);
+        if (nominee) {
+            nominee.votes += voteCount;
+            saveSpecialAwards();
+            saveSpecialVotes();
+            renderAwardsCategories();
+        }
     }
 }
 
@@ -308,10 +401,97 @@ function renderContestants() {
     });
 }
 
+function renderAwardsCategories() {
+    const grid = document.getElementById('awardsCategoriesGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = awardCategories.map(category => {
+        const sortedNominees = [...category.nominees].sort((a, b) => b.votes - a.votes);
+        const totalVotes = category.nominees.reduce((sum, n) => sum + n.votes, 0);
+        
+        return `
+            <div class="category-card" data-category-id="${category.id}">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas ${category.icon}"></i>
+                    </div>
+                    <h3>${category.name}</h3>
+                </div>
+                <div class="category-content">
+                    <div class="nominees-list">
+                        ${sortedNominees.map(nominee => {
+                            const percentage = totalVotes > 0 ? (nominee.votes / totalVotes) * 100 : 0;
+                            return `
+                                <div class="nominee-item">
+                                    <div class="nominee-info">
+                                        <div class="nominee-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="nominee-details">
+                                            <div class="nominee-name">${nominee.name}</div>
+                                            <div class="nominee-votes">${nominee.votes} votes</div>
+                                            <div class="progress-bar" style="width: 100%; margin-top: 4px;">
+                                                <div class="progress-fill" style="width: ${percentage}%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="nominee-vote-count">⭐ ${nominee.votes}</div>
+                                    </div>
+                                    <button class="vote-special-btn" data-category-id="${category.id}" data-nominee-id="${nominee.id}" data-nominee-name="${nominee.name}" data-category-name="${category.name}">
+                                        <i class="fas fa-heart"></i> Vote
+                                    </button>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <button class="add-nominee-btn" data-category-id="${category.id}" data-category-name="${category.name}">
+                        <i class="fas fa-plus"></i> Add Nominee
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    document.querySelectorAll('.vote-special-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const categoryId = parseInt(btn.dataset.categoryId);
+            const nomineeId = parseInt(btn.dataset.nomineeId);
+            const nomineeName = btn.dataset.nomineeName;
+            const categoryName = btn.dataset.categoryName;
+            openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName);
+        });
+    });
+    
+    document.querySelectorAll('.add-nominee-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const categoryId = parseInt(btn.dataset.categoryId);
+            const categoryName = btn.dataset.categoryName;
+            addNomineePrompt(categoryId, categoryName);
+        });
+    });
+}
 
-// ============ TICKET MODAL ============
+function addNomineePrompt(categoryId, categoryName) {
+    const nomineeName = prompt(`Enter nominee name for "${categoryName}":`);
+    if (nomineeName && nomineeName.trim()) {
+        const category = awardCategories.find(c => c.id === categoryId);
+        if (category) {
+            const newNominee = {
+                id: Date.now(),
+                name: nomineeName.trim(),
+                votes: 0
+            };
+            category.nominees.push(newNominee);
+            saveSpecialAwards();
+            renderAwardsCategories();
+            alert(`✅ Added "${nomineeName}" to ${categoryName}`);
+        }
+    }
+}
+
+// ============ MODAL FUNCTIONS ============
 let currentTicketType = null;
 let currentTicketPrice = null;
+let currentContestantId = null;
 
 function openTicketModal(type, price) {
     currentTicketType = type;
@@ -328,9 +508,6 @@ function closeTicketModal() {
     document.getElementById('ticketForm').reset();
 }
 
-// ============ VOTING MODAL ============
-let currentContestantId = null;
-
 function openVoteModal(contestantId, contestantName) {
     currentContestantId = contestantId;
     const modal = document.getElementById('voteModal');
@@ -342,6 +519,22 @@ function openVoteModal(contestantId, contestantName) {
 
 function closeVoteModal() {
     const modal = document.getElementById('voteModal');
+    modal.style.display = 'none';
+}
+
+function openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName) {
+    currentSpecialNominee = { id: nomineeId, categoryId: categoryId };
+    currentSpecialCategory = categoryName;
+    const modal = document.getElementById('specialVoteModal');
+    document.getElementById('specialContestantName').textContent = nomineeName;
+    document.getElementById('specialCategoryName').textContent = categoryName;
+    document.getElementById('specialVoteCount').value = 1;
+    document.getElementById('specialTotalAmount').textContent = '50';
+    modal.style.display = 'block';
+}
+
+function closeSpecialVoteModal() {
+    const modal = document.getElementById('specialVoteModal');
     modal.style.display = 'none';
 }
 
@@ -378,6 +571,34 @@ window.viewContestants = function() {
     return contestants;
 };
 
+window.addSpecialNominee = function(categoryId, nomineeName) {
+    const category = awardCategories.find(c => c.id === categoryId);
+    if (category) {
+        const newNominee = {
+            id: Date.now(),
+            name: nomineeName,
+            votes: 0
+        };
+        category.nominees.push(newNominee);
+        saveSpecialAwards();
+        renderAwardsCategories();
+        console.log(`✅ Added "${nomineeName}" to ${category.name}`);
+        return newNominee;
+    } else {
+        console.log(`❌ Category ID ${categoryId} not found`);
+        return null;
+    }
+};
+
+window.viewSpecialAwards = function() {
+    console.table(awardCategories.map(cat => ({
+        Category: cat.name,
+        Nominees: cat.nominees.length,
+        TotalVotes: cat.nominees.reduce((sum, n) => sum + n.votes, 0)
+    })));
+    return awardCategories;
+};
+
 window.viewAllTickets = function() {
     console.table(tickets.sold);
     return tickets.sold;
@@ -396,151 +617,17 @@ window.clearAllData = function() {
         localStorage.clear();
         contestants = [];
         tickets = { sold: [], used: [] };
+        awardCategories.forEach(cat => cat.nominees = []);
         renderContestants();
         updateResults();
+        renderAwardsCategories();
         console.log('✅ All data cleared!');
     }
 };
 
-// ============ EVENT LISTENERS ============
-document.addEventListener('DOMContentLoaded', function() {
-    // Buy ticket buttons
-    document.querySelectorAll('.buy-ticket').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const price = parseInt(btn.dataset.price);
-            const type = btn.dataset.type;
-            openTicketModal(type, price);
-        });
-    });
-    
-    // Ticket form submission
-    const ticketForm = document.getElementById('ticketForm');
-    if (ticketForm) {
-        ticketForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const buyerName = document.getElementById('buyerName').value;
-            const buyerEmail = document.getElementById('buyerEmail').value;
-            const buyerPhone = document.getElementById('buyerPhone').value;
-            
-            if (!buyerName || !buyerEmail || !buyerPhone) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            alert(`💰 Payment Demo\n\nTicket: ${currentTicketType}\nAmount: ₦${currentTicketPrice.toLocaleString()}\n\nClick OK to complete demo purchase`);
-            
-            const ticket = purchaseTicket(currentTicketType, currentTicketPrice, buyerName, buyerEmail, buyerPhone);
-            
-            alert(`✅ TICKET PURCHASED!\n\n📱 YOUR TICKET CODE: ${ticket.code}\n\nSave this code! Present it at the entrance.\nEach code can only be used once.`);
-            
-            console.log('Ticket purchased:', ticket);
-            closeTicketModal();
-        });
-    }
-    
-    // Login button
-    const loginBtn = document.getElementById('loginBtn');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', handleLogin);
-    }
-    
-    // Logout button
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', handleLogout);
-    }
-    
-    // Enter key on login password field
-    const loginPassword = document.getElementById('loginPassword');
-    if (loginPassword) {
-        loginPassword.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                handleLogin();
-            }
-        });
-    }
-    
-    // Enter key on ticket code field
-    const ticketCodeInput = document.getElementById('ticketCodeInput');
-    if (ticketCodeInput) {
-        ticketCodeInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                verifyTicketCode();
-            }
-        });
-    }
-    
-    // Verify button
-    const verifyBtn = document.getElementById('verifyBtn');
-    if (verifyBtn) {
-        verifyBtn.addEventListener('click', verifyTicketCode);
-    }
-    
-    // Open verification modal button
-    const verifyTicketBtn = document.getElementById('verifyTicketBtn');
-    if (verifyTicketBtn) {
-        verifyTicketBtn.addEventListener('click', openVerificationModal);
-    }
-    
-    // Pay vote button
-    const payVoteBtn = document.getElementById('payVoteBtn');
-    if (payVoteBtn) {
-        payVoteBtn.addEventListener('click', () => {
-            const voteCount = parseInt(document.getElementById('voteCount').value) || 0;
-            if (voteCount < 1) {
-                alert('Please enter at least 1 vote');
-                return;
-            }
-            
-            const totalAmount = voteCount * 50;
-            alert(`💰 Payment Demo\n\nVotes: ${voteCount}\nTotal: ₦${totalAmount}\n\nClick OK to add votes`);
-            
-            addVotes(currentContestantId, voteCount);
-            closeVoteModal();
-        });
-    }
-    
-    // Vote count input
-    const voteCountInput = document.getElementById('voteCount');
-    if (voteCountInput) {
-        voteCountInput.addEventListener('input', (e) => {
-            const count = parseInt(e.target.value) || 0;
-            document.getElementById('totalAmount').textContent = count * 50;
-        });
-    }
-    
-    // Close modals
-    document.querySelectorAll('.close').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const modal = this.closest('.modal');
-            if (modal) modal.style.display = 'none';
-        });
-    });
-    
-    // Click outside to close
-    window.addEventListener('click', (e) => {
-        if (e.target === document.getElementById('voteModal')) closeVoteModal();
-        if (e.target === document.getElementById('ticketModal')) closeTicketModal();
-        if (e.target === document.getElementById('verifyModal')) closeVerificationModal();
-    });
-    
-    // Smooth scroll
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-});
-
 // ============ SPONSORS DATA ============
 let sponsors = [];
 
-// Load sponsors
 function loadSponsors() {
     const savedSponsors = localStorage.getItem('nuasaSponsors');
     if (savedSponsors) {
@@ -551,12 +638,10 @@ function loadSponsors() {
     renderSponsors();
 }
 
-// Save sponsors
 function saveSponsors() {
     localStorage.setItem('nuasaSponsors', JSON.stringify(sponsors));
 }
 
-// Render sponsors
 function renderSponsors() {
     const sponsorsGrid = document.getElementById('sponsorsGrid');
     if (!sponsorsGrid) return;
@@ -583,7 +668,6 @@ function renderSponsors() {
     `).join('');
 }
 
-// ============ ADMIN FUNCTION TO ADD SPONSORS (Console) ============
 window.addSponsor = function(name, level, website, logoUrl = null) {
     const newSponsor = {
         id: sponsors.length + 1,
@@ -611,7 +695,158 @@ window.viewSponsors = function() {
     return sponsors;
 };
 
-// ============ HAMBURGER MENU FIX ============
+// ============ EVENT LISTENERS ============
+document.addEventListener('DOMContentLoaded', function() {
+    loadData();
+    loadSpecialVotes();
+    
+    document.querySelectorAll('.buy-ticket').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const price = parseInt(btn.dataset.price);
+            const type = btn.dataset.type;
+            openTicketModal(type, price);
+        });
+    });
+    
+    const ticketForm = document.getElementById('ticketForm');
+    if (ticketForm) {
+        ticketForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const buyerName = document.getElementById('buyerName').value;
+            const buyerEmail = document.getElementById('buyerEmail').value;
+            const buyerPhone = document.getElementById('buyerPhone').value;
+            
+            if (!buyerName || !buyerEmail || !buyerPhone) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            alert(`💰 Payment Demo\n\nTicket: ${currentTicketType}\nAmount: ₦${currentTicketPrice.toLocaleString()}\n\nClick OK to complete demo purchase`);
+            
+            const ticket = purchaseTicket(currentTicketType, currentTicketPrice, buyerName, buyerEmail, buyerPhone);
+            
+            alert(`✅ TICKET PURCHASED!\n\n📱 YOUR TICKET CODE: ${ticket.code}\n\nSave this code! Present it at the entrance.\nEach code can only be used once.`);
+            
+            console.log('Ticket purchased:', ticket);
+            closeTicketModal();
+        });
+    }
+    
+    const loginBtn = document.getElementById('loginBtn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', handleLogin);
+    }
+    
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+    
+    const loginPassword = document.getElementById('loginPassword');
+    if (loginPassword) {
+        loginPassword.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleLogin();
+            }
+        });
+    }
+    
+    const ticketCodeInput = document.getElementById('ticketCodeInput');
+    if (ticketCodeInput) {
+        ticketCodeInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                verifyTicketCode();
+            }
+        });
+    }
+    
+    const verifyBtn = document.getElementById('verifyBtn');
+    if (verifyBtn) {
+        verifyBtn.addEventListener('click', verifyTicketCode);
+    }
+    
+    const verifyTicketBtn = document.getElementById('verifyTicketBtn');
+    if (verifyTicketBtn) {
+        verifyTicketBtn.addEventListener('click', openVerificationModal);
+    }
+    
+    const payVoteBtn = document.getElementById('payVoteBtn');
+    if (payVoteBtn) {
+        payVoteBtn.addEventListener('click', () => {
+            const voteCount = parseInt(document.getElementById('voteCount').value) || 0;
+            if (voteCount < 1) {
+                alert('Please enter at least 1 vote');
+                return;
+            }
+            
+            const totalAmount = voteCount * 50;
+            alert(`💰 Payment Demo\n\nVotes: ${voteCount}\nTotal: ₦${totalAmount}\n\nClick OK to add votes`);
+            
+            addVotes(currentContestantId, voteCount);
+            closeVoteModal();
+        });
+    }
+    
+    const paySpecialVoteBtn = document.getElementById('paySpecialVoteBtn');
+    if (paySpecialVoteBtn) {
+        paySpecialVoteBtn.addEventListener('click', () => {
+            const voteCount = parseInt(document.getElementById('specialVoteCount').value) || 0;
+            if (voteCount < 1) {
+                alert('Please enter at least 1 vote');
+                return;
+            }
+            
+            const totalAmount = voteCount * 50;
+            alert(`💰 Payment Demo\n\nCategory: ${currentSpecialCategory}\nVotes: ${voteCount}\nTotal: ₦${totalAmount}\n\nClick OK to add votes`);
+            
+            addSpecialVotes(currentSpecialNominee.categoryId, currentSpecialNominee.id, voteCount);
+            closeSpecialVoteModal();
+        });
+    }
+    
+    const voteCountInput = document.getElementById('voteCount');
+    if (voteCountInput) {
+        voteCountInput.addEventListener('input', (e) => {
+            const count = parseInt(e.target.value) || 0;
+            document.getElementById('totalAmount').textContent = count * 50;
+        });
+    }
+    
+    const specialVoteCountInput = document.getElementById('specialVoteCount');
+    if (specialVoteCountInput) {
+        specialVoteCountInput.addEventListener('input', (e) => {
+            const count = parseInt(e.target.value) || 0;
+            document.getElementById('specialTotalAmount').textContent = count * 50;
+        });
+    }
+    
+    document.querySelectorAll('.close').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) modal.style.display = 'none';
+        });
+    });
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('voteModal')) closeVoteModal();
+        if (e.target === document.getElementById('specialVoteModal')) closeSpecialVoteModal();
+        if (e.target === document.getElementById('ticketModal')) closeTicketModal();
+        if (e.target === document.getElementById('verifyModal')) closeVerificationModal();
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
+// ============ HAMBURGER MENU ============
 const mobileMenuBtn = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -674,6 +909,8 @@ if (navLinks) {
 
 window.addEventListener('resize', resetMobileMenu);
 resetMobileMenu();
-// Initialize
+
+// Initialize everything
 loadData();
+loadSpecialVotes();
 renderSponsors();
