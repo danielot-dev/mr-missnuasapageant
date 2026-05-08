@@ -958,3 +958,310 @@ footer {
         font-size: 1.4rem;
     }
 }
+/* ============ SPECIAL AWARDS SECTION ============ */
+.special-awards-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #fff9f0 100%);
+}
+
+.awards-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+}
+
+.category-header {
+    background: linear-gradient(135deg, #D4AF37 0%, #B8960F 100%);
+    padding: 1.2rem;
+    text-align: center;
+    position: relative;
+}
+
+.category-header h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.category-icon {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #D4AF37;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-content {
+    padding: 1.5rem;
+}
+
+.nominees-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.nominee-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.nominee-item:hover {
+    border-color: #D4AF37;
+    background: white;
+}
+
+.nominee-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+}
+
+.nominee-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.nominee-details {
+    flex: 1;
+}
+
+.nominee-name {
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 0.2rem;
+}
+
+.nominee-votes {
+    font-size: 0.8rem;
+    color: #D4AF37;
+    font-weight: 500;
+}
+
+.nominee-vote-count {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    min-width: 60px;
+    text-align: right;
+}
+
+.vote-special-btn {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    color: #1a1a2e;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.vote-special-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.add-nominee-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: transparent;
+    border: 2px dashed #D4AF37;
+    border-radius: 12px;
+    color: #D4AF37;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-nominee-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-style: solid;
+}
+
+/* Special Prizes Section */
+.special-prizes {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.special-prizes h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #1a1a2e;
+}
+
+.special-prizes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.prize-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s;
+}
+
+.prize-card:hover {
+    transform: translateY(-3px);
+    border-color: #D4AF37;
+}
+
+.prize-card i {
+    font-size: 2rem;
+    color: #D4AF37;
+    margin-bottom: 0.8rem;
+}
+
+.prize-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+.prize-card p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.vote-category {
+    color: #D4AF37;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Admin Panel for Awards */
+.admin-awards-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.admin-toggle-btn {
+    background: #1a1a2e;
+    color: #D4AF37;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #D4AF37;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.admin-toggle-btn:hover {
+    background: #D4AF37;
+    color: #1a1a2e;
+    transform: scale(1.1);
+}
+
+.admin-modal {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: white;
+    border-radius: 16px;
+    width: 320px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 2px solid #D4AF37;
+    z-index: 1001;
+}
+
+.admin-modal-content {
+    padding: 1.5rem;
+}
+
+.admin-modal-content h4 {
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+}
+
+.admin-modal-content input,
+.admin-modal-content select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.admin-modal-content button {
+    width: 100%;
+    padding: 0.6rem;
+    background: #D4AF37;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .awards-categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-card {
+        margin-bottom: 1rem;
+    }
+    
+    .nominee-item {
+        flex-wrap: wrap;
+    }
+    
+    .nominee-vote-count {
+        min-width: auto;
+    }
+}
