@@ -38,43 +38,27 @@
             <h1>MR & MISS <span class="highlight">NUASA</span></h1>
             <p>Vote for your favorite contestant or secure your ticket now!</p>
             <div class="hero-buttons">
-                <a href="https://your-payment-page.com/tickets" class="btn-primary" target="_blank"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
-                <a href="https://your-voting-page.com" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote Contestants</a>
+                <a href="#tickets" class="btn-primary"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
+                <a href="#contestants" class="btn-secondary"><i class="fas fa-heart"></i> Vote Contestants</a>
                 <a href="#special-awards" class="btn-primary"><i class="fas fa-trophy"></i> Special Awards</a>
             </div>
         </div>
     </section>
 
-    <!-- Contestants Section (Simplified - redirects to external vote page) -->
+    <!-- Contestants Section -->
     <section id="contestants" class="contestants">
         <div class="container">
             <h2>Meet Our <span class="highlight">Contestants</span></h2>
-            <p class="section-subtitle">Vote for your favorite MR & MISS NUASA contestant</p>
-            <div class="vote-redirect-container">
-                <div class="vote-redirect-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Cast Your Vote</h3>
-                    <p>Voting is ₦100 per vote. Click below to purchase votes and support your favorite contestant!</p>
-                    <a href="https://your-voting-page.com" class="btn-primary" target="_blank">
-                        <i class="fas fa-vote-yea"></i> Vote Now → 
-                    </a>
-                </div>
-            </div>
+            <p class="section-subtitle">₦100 per vote — vote as many times as you want!</p>
+            <div class="contestants-grid" id="contestantsGrid"></div>
         </div>
     </section>
 
-    <!-- Live Results (Static/Manual Update) -->
+    <!-- Live Results -->
     <section id="results" class="results">
         <div class="container">
             <h2>Live <span class="highlight">Results</span></h2>
-            <p class="section-subtitle">Current standings - Updated manually after vote count</p>
-            <div class="results-container" id="resultsContainer">
-                <div class="empty-state">
-                    <i class="fas fa-chart-line"></i>
-                    <p>Results will be displayed here after voting begins</p>
-                    <span>Check back soon!</span>
-                </div>
-            </div>
+            <div class="results-container" id="resultsContainer"></div>
         </div>
     </section>
 
@@ -169,30 +153,104 @@
         </div>
     </section>
 
-    <!-- Tickets Section (External redirect only) -->
+    <!-- Tickets Section -->
     <section id="tickets" class="tickets">
         <div class="container">
             <h2>Event <span class="highlight">Tickets</span></h2>
-            <div class="tickets-redirect-container">
-                <div class="tickets-redirect-card">
-                    <i class="fas fa-ticket-alt"></i>
-                    <h3>Secure Your Spot!</h3>
-                    <p>Get your tickets to MR & MISS NUASA 2026 now!</p>
-                    <div class="ticket-prices">
-                        <span class="price-tag">Regular: ₦1,000</span>
-                        <span class="price-tag">VIP: ₦5,000</span>
-                        <span class="price-tag">Table (4 seats): ₦40,000</span>
-                        <span class="price-tag">Table (6 seats): ₦50,000</span>
-                    </div>
-                    <a href="https://your-payment-page.com/tickets" class="btn-primary" target="_blank">
-                        <i class="fas fa-shopping-cart"></i> Buy Tickets Now → 
-                    </a>
+            <div class="tickets-grid">
+                <div class="ticket-card">
+                    <h3>Regular</h3>
+                    <div class="price">₦1,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> General seating</li>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                    </ul>
+                    <button class="btn-secondary buy-ticket" data-price="1000" data-type="Regular">Buy Ticket →</button>
+                </div>
+                
+                <div class="ticket-card featured">
+                    <div class="popular-badge">Popular</div>
+                    <h3>VIP</h3>
+                    <div class="price">₦5,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Front row seating</li>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                    </ul>
+                    <button class="btn-primary buy-ticket" data-price="5000" data-type="VIP">Buy Ticket →</button>
+                </div>
+                
+                <div class="ticket-card">
+                    <h3>Table (4 seats)</h3>
+                    <div class="price">₦40,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                        <li><i class="fas fa-check"></i> Reserved Table</li>
+                        <li><i class="fas fa-check"></i> Refreshments</li>
+                    </ul>
+                    <button class="btn-secondary buy-ticket" data-price="40000" data-type="Table">Buy Ticket →</button>
+                </div>
+
+                <div class="ticket-card">
+                    <h3>Table (6 seats)</h3>
+                    <div class="price">₦50,000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Event access</li>
+                        <li><i class="fas fa-check"></i> Reserved Table</li>
+                        <li><i class="fas fa-check"></i> Refreshments</li>
+                    </ul>
+                    <button class="btn-secondary buy-ticket" data-price="50000" data-type="Table">Buy Ticket →</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sponsors Section (Redesigned to match page theme) -->
+    <!-- Ticket Purchase Modal -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Purchase <span id="ticketTypeDisplay"></span> Ticket</h3>
+            <p class="ticket-price">Price: ₦<span id="ticketPriceDisplay"></span></p>
+            
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" id="buyerName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address:</label>
+                    <input type="email" id="buyerEmail" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number:</label>
+                    <input type="tel" id="buyerPhone" required placeholder="08012345678">
+                </div>
+                <div class="form-group">
+                    <p class="ticket-note">
+                        <i class="fas fa-info-circle"></i>
+                        You'll receive a UNIQUE ticket code. This code can only be used ONCE at the entrance.
+                    </p>
+                </div>
+                <button type="submit" class="btn-primary">Proceed to Payment →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Voting Modal for Main Contestants -->
+    <div id="voteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Vote for <span id="contestantName"></span></h3>
+            <p class="vote-price">₦100 per vote</p>
+            <div class="vote-input-group">
+                <label for="voteCount">Number of votes:</label>
+                <input type="number" id="voteCount" min="1" max="1000" value="1">
+                <p class="total-amount">Total: ₦<span id="totalAmount">100</span></p>
+            </div>
+            <button id="payVoteBtn" class="btn-primary">Continue to Payment →</button>
+        </div>
+    </div>
+
+    <!-- Sponsors Section -->
     <section id="sponsors" class="sponsors">
         <div class="container">
             <h2>Our <span class="highlight">Sponsors</span> & <span class="highlight">Partners</span></h2>
@@ -457,59 +515,70 @@
             margin-bottom: 3rem;
         }
 
-        /* Vote Redirect Container */
-        .vote-redirect-container, .tickets-redirect-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
+        .contestants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
-        .vote-redirect-card, .tickets-redirect-card {
-            background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
-            border-radius: 30px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 500px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .vote-redirect-card i, .tickets-redirect-card i {
-            font-size: 4rem;
-            color: #D4AF37;
-            margin-bottom: 1rem;
-        }
-
-        .vote-redirect-card h3, .tickets-redirect-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #1a1a2e;
-        }
-
-        .vote-redirect-card p, .tickets-redirect-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .ticket-prices {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .price-tag {
-            background: #f8fafc;
-            padding: 0.5rem 1rem;
+        .contestant-card {
+            background: white;
             border-radius: 20px;
-            font-weight: 600;
-            color: #D4AF37;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* Results */
+        .contestant-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contestant-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .contestant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contestant-info {
+            padding: 1.5rem;
+        }
+
+        .contestant-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contestant-number {
+            color: #D4AF37;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .vote-count {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            color: #D4AF37;
+        }
+
+        .vote-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
         .results-container {
             display: flex;
             flex-direction: column;
@@ -553,25 +622,64 @@
             transition: width 0.3s;
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: #f8fafc;
+        .tickets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .ticket-card {
+            background: white;
             border-radius: 20px;
-            border: 2px dashed rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+            position: relative;
         }
 
-        .empty-state i {
-            font-size: 4rem;
+        .ticket-card.featured {
+            border: 2px solid #D4AF37;
+            transform: scale(1.02);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            color: #1a1a2e;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 1rem 0;
+        }
+
+        .ticket-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .ticket-card li {
+            padding: 0.5rem 0;
+            color: #4a4a6a;
+        }
+
+        .ticket-card li i {
             color: #D4AF37;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        .empty-state p {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-right: 0.5rem;
         }
 
         .modal {
@@ -620,12 +728,27 @@
             font-weight: 500;
         }
 
-        .form-group input, .form-group select {
+        .form-group input {
             width: 100%;
             padding: 0.8rem;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
             font-size: 1rem;
+        }
+
+        .ticket-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin: 1rem 0;
+        }
+
+        .ticket-note {
+            background: #f8fafc;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #666;
         }
 
         .vote-price {
@@ -651,6 +774,27 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: #D4AF37;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #f8fafc;
+            border-radius: 20px;
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         /* Awards Section */
@@ -976,7 +1120,7 @@
             color: #666;
         }
 
-        /* Sponsors Section - Redesigned */
+        /* Sponsors Section */
         .sponsors {
             padding: 5rem 2rem;
             background: #f8fafc;
@@ -1114,7 +1258,6 @@
             color: white;
         }
 
-        /* Footer */
         footer {
             background: #1a1a2e;
             color: #e8e0d0;
@@ -1133,6 +1276,9 @@
             h2 {
                 font-size: 1.8rem;
             }
+            .ticket-card.featured {
+                transform: none;
+            }
             .result-item {
                 flex-wrap: wrap;
             }
@@ -1144,8 +1290,11 @@
             .result-name {
                 min-width: unset;
             }
-            .vote-redirect-card, .tickets-redirect-card {
-                padding: 1.5rem;
+            .nav-links {
+                gap: 1rem;
+            }
+            .logo {
+                font-size: 1.2rem;
             }
             .awards-categories-grid {
                 grid-template-columns: 1fr;
@@ -1159,6 +1308,9 @@
     <script>
         // ============ VOTE PRICE ============
         const VOTE_PRICE = 100;
+
+        // ============ CONTESTANTS DATA ============
+        let contestants = [];
 
         // ============ SPECIAL AWARDS DATA ============
         let awardCategories = [
@@ -1287,11 +1439,31 @@
             ] }
         ];
 
+        // ============ TICKET SYSTEM ============
+        let tickets = {
+            sold: [],
+            used: []
+        };
+
         // ============ SPONSORS DATA ============
         let sponsors = [];
 
         // ============ LOAD DATA ============
         function loadData() {
+            const savedContestants = localStorage.getItem('nuasaContestants');
+            if (savedContestants) {
+                contestants = JSON.parse(savedContestants);
+            } else {
+                contestants = [];
+            }
+            
+            const savedTickets = localStorage.getItem('nuasaTickets');
+            if (savedTickets) {
+                tickets = JSON.parse(savedTickets);
+            } else {
+                tickets = { sold: [], used: [] };
+            }
+            
             const savedAwards = localStorage.getItem('nuasaSpecialAwards');
             if (savedAwards) {
                 const savedData = JSON.parse(savedAwards);
@@ -1302,10 +1474,12 @@
                 });
             }
             
+            loadVotes();
             loadSpecialVotes();
             loadSponsors();
+            renderContestants();
+            updateResults();
             renderAwardsCategories();
-            renderResults();
         }
 
         function saveSpecialAwards() {
@@ -1351,24 +1525,109 @@
                     saveSpecialAwards();
                     saveSpecialVotes();
                     renderAwardsCategories();
-                    renderResults();
+                    updateResults();
                 }
             }
         }
 
-        // Render Results (for display)
-        function renderResults() {
+        // ============ TICKET CODE GENERATOR ============
+        function generateTicketCode() {
+            const randomNum = Math.floor(Math.random() * 900000) + 100000;
+            return `NUSA-${randomNum}`;
+        }
+
+        function saveTickets() {
+            localStorage.setItem('nuasaTickets', JSON.stringify(tickets));
+        }
+
+        function purchaseTicket(type, price, buyerName, buyerEmail, buyerPhone) {
+            let ticketCode;
+            let isUnique = false;
+            
+            while (!isUnique) {
+                ticketCode = generateTicketCode();
+                const existing = tickets.sold.find(t => t.code === ticketCode);
+                if (!existing) {
+                    isUnique = true;
+                }
+            }
+            
+            const newTicket = {
+                code: ticketCode,
+                type: type,
+                price: price,
+                buyerName: buyerName,
+                buyerEmail: buyerEmail,
+                buyerPhone: buyerPhone,
+                purchaseDate: new Date().toISOString()
+            };
+            
+            tickets.sold.push(newTicket);
+            saveTickets();
+            return newTicket;
+        }
+
+        // ============ VOTING FUNCTIONS ============
+        function loadVotes() {
+            const saved = localStorage.getItem('nuasaVotes');
+            if (saved) {
+                const savedVotes = JSON.parse(saved);
+                contestants.forEach(c => {
+                    if (savedVotes[c.id]) c.votes = savedVotes[c.id];
+                });
+            }
+        }
+
+        function saveVotes() {
+            const votesToSave = {};
+            contestants.forEach(c => {
+                votesToSave[c.id] = c.votes;
+            });
+            localStorage.setItem('nuasaVotes', JSON.stringify(votesToSave));
+        }
+
+        function saveContestants() {
+            localStorage.setItem('nuasaContestants', JSON.stringify(contestants));
+        }
+
+        function addVotes(contestantId, voteCount) {
+            const contestant = contestants.find(c => c.id === contestantId);
+            if (contestant) {
+                contestant.votes += voteCount;
+                saveVotes();
+                saveContestants();
+                renderContestants();
+                updateResults();
+            }
+        }
+
+        // ============ RENDER FUNCTIONS ============
+        function updateResults() {
             const resultsContainer = document.getElementById('resultsContainer');
             if (!resultsContainer) return;
             
             // Collect all nominees with votes for display
             let allNominees = [];
+            
+            // Add main contestants
+            contestants.forEach(c => {
+                if (c.votes > 0) {
+                    allNominees.push({
+                        name: `${c.name} (${c.number})`,
+                        votes: c.votes,
+                        isContestant: true
+                    });
+                }
+            });
+            
+            // Add special award nominees
             awardCategories.forEach(category => {
                 category.nominees.forEach(nominee => {
                     if (nominee.votes > 0) {
                         allNominees.push({
                             name: `${nominee.name} (${category.name})`,
-                            votes: nominee.votes
+                            votes: nominee.votes,
+                            isContestant: false
                         });
                     }
                 });
@@ -1378,8 +1637,8 @@
                 resultsContainer.innerHTML = `
                     <div class="empty-state">
                         <i class="fas fa-chart-line"></i>
-                        <p>Results will be displayed here after voting begins</p>
-                        <span>Check back soon!</span>
+                        <p>No votes yet</p>
+                        <span>Be the first to vote!</span>
                     </div>
                 `;
                 return;
@@ -1388,7 +1647,7 @@
             const sorted = allNominees.sort((a, b) => b.votes - a.votes);
             const totalVotes = allNominees.reduce((sum, n) => sum + n.votes, 0);
             
-            resultsContainer.innerHTML = sorted.map((n, index) => {
+            resultsContainer.innerHTML = sorted.slice(0, 15).map((n, index) => {
                 const percentage = totalVotes > 0 ? (n.votes / totalVotes) * 100 : 0;
                 const medal = index === 0 ? '👑 ' : index === 1 ? '🥈 ' : index === 2 ? '🥉 ' : '';
                 return `
@@ -1401,6 +1660,44 @@
                     </div>
                 `;
             }).join('');
+        }
+
+        function renderContestants() {
+            const grid = document.getElementById('contestantsGrid');
+            if (!grid) return;
+            
+            if (contestants.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users-slash"></i>
+                        <p>No contestants yet</p>
+                        <span>Check back soon for our amazing contestants!</span>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = contestants.map(c => `
+                <div class="contestant-card">
+                    <div class="contestant-image">
+                        <img src="${c.image}" alt="${c.name}" loading="lazy">
+                    </div>
+                    <div class="contestant-info">
+                        <div class="contestant-number">${c.number}</div>
+                        <h3>${c.name}</h3>
+                        <div class="vote-count">⭐ ${c.votes} votes</div>
+                        <button class="vote-btn" data-id="${c.id}" data-name="${c.name}">Vote (₦${VOTE_PRICE}/vote) →</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.querySelectorAll('.vote-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(btn.dataset.id);
+                    const name = btn.dataset.name;
+                    openVoteModal(id, name);
+                });
+            });
         }
 
         function renderAwardsCategories() {
@@ -1492,15 +1789,47 @@
                     category.nominees.push(newNominee);
                     saveSpecialAwards();
                     renderAwardsCategories();
-                    renderResults();
+                    updateResults();
                     alert(`✅ Added "${nomineeName}" to ${categoryName}`);
                 }
             }
         }
 
         // ============ MODAL FUNCTIONS ============
+        let currentTicketType = null;
+        let currentTicketPrice = null;
+        let currentContestantId = null;
         let currentSpecialNominee = null;
         let currentSpecialCategory = null;
+
+        function openTicketModal(type, price) {
+            currentTicketType = type;
+            currentTicketPrice = price;
+            const modal = document.getElementById('ticketModal');
+            document.getElementById('ticketTypeDisplay').textContent = type;
+            document.getElementById('ticketPriceDisplay').textContent = price.toLocaleString();
+            modal.style.display = 'block';
+        }
+
+        function closeTicketModal() {
+            const modal = document.getElementById('ticketModal');
+            modal.style.display = 'none';
+            document.getElementById('ticketForm').reset();
+        }
+
+        function openVoteModal(contestantId, contestantName) {
+            currentContestantId = contestantId;
+            const modal = document.getElementById('voteModal');
+            document.getElementById('contestantName').textContent = contestantName;
+            document.getElementById('voteCount').value = 1;
+            document.getElementById('totalAmount').textContent = VOTE_PRICE;
+            modal.style.display = 'block';
+        }
+
+        function closeVoteModal() {
+            const modal = document.getElementById('voteModal');
+            modal.style.display = 'none';
+        }
 
         function openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName) {
             currentSpecialNominee = { id: nomineeId, categoryId: categoryId };
@@ -1611,178 +1940,19 @@
         }
 
         // ============ ADMIN CONSOLE FUNCTIONS ============
-        window.addSponsor = function(name, level, website, logoUrl = null) {
-            const newSponsor = {
-                id: Date.now(),
+        window.addContestant = function(name, number, imageUrl, emoji = '👑') {
+            const newId = contestants.length > 0 ? Math.max(...contestants.map(c => c.id)) + 1 : 1;
+            const newContestant = {
+                id: newId,
                 name: name,
-                level: level,
-                website: website,
-                logoUrl: logoUrl
+                number: number,
+                votes: 0,
+                emoji: emoji,
+                image: imageUrl || 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=400&h=500&fit=crop',
+                alt: name
             };
-            sponsors.push(newSponsor);
-            saveSponsors();
-            console.log(`✅ Added sponsor: ${name} (${level})`);
-            return newSponsor;
-        };
-
-        window.removeSponsor = function(sponsorId) {
-            const sponsor = sponsors.find(s => s.id === sponsorId);
-            if (sponsor && confirm(`Remove ${sponsor.name} from sponsors?`)) {
-                sponsors = sponsors.filter(s => s.id !== sponsorId);
-                saveSponsors();
-                console.log(`✅ Removed sponsor: ${sponsor.name}`);
-            }
-        };
-
-        window.viewSponsors = function() {
-            console.table(sponsors);
-            return sponsors;
-        };
-
-        window.addSpecialNominee = function(categoryId, nomineeName) {
-            const category = awardCategories.find(c => c.id === categoryId);
-            if (category) {
-                const newNominee = {
-                    id: Date.now(),
-                    name: nomineeName,
-                    votes: 0
-                };
-                category.nominees.push(newNominee);
-                saveSpecialAwards();
-                renderAwardsCategories();
-                renderResults();
-                console.log(`✅ Added "${nomineeName}" to ${category.name}`);
-                return newNominee;
-            } else {
-                console.log(`❌ Category ID ${categoryId} not found`);
-                return null;
-            }
-        };
-
-        window.viewSpecialAwards = function() {
-            console.table(awardCategories.map(cat => ({
-                Category: cat.name,
-                Nominees: cat.nominees.length,
-                TotalVotes: cat.nominees.reduce((sum, n) => sum + n.votes, 0)
-            })));
-            return awardCategories;
-        };
-
-        window.clearAllData = function() {
-            if (confirm('⚠️ WARNING: This will delete ALL special awards data. Are you sure?')) {
-                awardCategories.forEach(cat => cat.nominees = []);
-                sponsors = [];
-                localStorage.removeItem('nuasaSpecialAwards');
-                localStorage.removeItem('nuasaSpecialVotes');
-                localStorage.removeItem('nuasaSponsors');
-                renderAwardsCategories();
-                renderSponsorsGrid();
-                renderResults();
-                console.log('✅ All data cleared!');
-            }
-        };
-
-        // ============ EVENT LISTENERS ============
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData();
-            
-            // Modal close buttons
-            document.querySelectorAll('.close').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if (modal) modal.style.display = 'none';
-                });
-            });
-            
-            // Close modals when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === document.getElementById('specialVoteModal')) closeSpecialVoteModal();
-                if (e.target === document.getElementById('addSponsorModal')) closeAddSponsorModal();
-            });
-            
-            // Special vote payment
-            const paySpecialVoteBtn = document.getElementById('paySpecialVoteBtn');
-            if (paySpecialVoteBtn) {
-                paySpecialVoteBtn.addEventListener('click', () => {
-                    const voteCount = parseInt(document.getElementById('specialVoteCount').value) || 0;
-                    if (voteCount < 1) {
-                        alert('Please enter at least 1 vote');
-                        return;
-                    }
-                    
-                    const totalAmount = voteCount * VOTE_PRICE;
-                    alert(`💰 Payment Demo\n\nCategory: ${currentSpecialCategory}\nVotes: ${voteCount}\nTotal: ₦${totalAmount}\n\nClick OK to add votes`);
-                    
-                    addSpecialVotes(currentSpecialNominee.categoryId, currentSpecialNominee.id, voteCount);
-                    closeSpecialVoteModal();
-                });
-            }
-            
-            // Special vote count input
-            const specialVoteCountInput = document.getElementById('specialVoteCount');
-            if (specialVoteCountInput) {
-                specialVoteCountInput.addEventListener('input', (e) => {
-                    const count = parseInt(e.target.value) || 0;
-                    document.getElementById('specialTotalAmount').textContent = count * VOTE_PRICE;
-                });
-            }
-            
-            // Navigation smooth scroll
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = document.querySelector(link.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-            
-            // Mobile menu
-            const mobileMenuBtn = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    if (navLinks.style.display === 'flex') {
-                        navLinks.style.display = 'none';
-                    } else {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.position = 'absolute';
-                        navLinks.style.top = '70px';
-                        navLinks.style.left = '0';
-                        navLinks.style.right = '0';
-                        navLinks.style.backgroundColor = 'white';
-                        navLinks.style.padding = '1.5rem';
-                        navLinks.style.gap = '1rem';
-                        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                        navLinks.style.borderBottom = '2px solid rgba(212, 175, 55, 0.3)';
-                    }
-                });
-            }
-            
-            function resetMobileMenu() {
-                if (window.innerWidth > 768) {
-                    if (navLinks) {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'row';
-                        navLinks.style.position = 'relative';
-                        navLinks.style.top = 'auto';
-                        navLinks.style.left = 'auto';
-                        navLinks.style.right = 'auto';
-                        navLinks.style.backgroundColor = 'transparent';
-                        navLinks.style.padding = '0';
-                        navLinks.style.boxShadow = 'none';
-                    }
-                } else {
-                    if (navLinks && navLinks.style.display !== 'flex') {
-                        navLinks.style.display = 'none';
-                    }
-                }
-            }
-            
-            window.addEventListener('resize', resetMobileMenu);
-            resetMobileMenu();
-        });
-    </script>
-</body>
-</html>
+            contestants.push(newContestant);
+            saveContestants();
+            renderContestants();
+            updateResults();
+            console.log(`✅
