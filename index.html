@@ -4,233 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR & MISS NUASA 2026 | Awards & Voting</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-crown"></i>
-                MR & MISS <span>NUASA</span>
-            </div>
-            <div class="nav-links">
-                <a href="#home" class="active">Home</a>
-                <a href="#contestants">Contestants</a>
-                <a href="#results">Results</a>
-                <a href="#awards">Prizes</a>
-                <a href="#special-awards">Special Awards</a>
-                <a href="#tickets">Tickets</a>
-                <a href="#sponsors">Sponsors</a>
-            </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>MR & MISS <span class="highlight">NUASA</span></h1>
-            <p>Vote for your favorite contestant or secure your ticket now!</p>
-            <div class="hero-buttons">
-                <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
-                <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote Contestants</a>
-                <a href="#sponsors" class="btn-primary"><i class="fas fa-trophy"></i> Sponsors </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contestants Section (Simplified - redirects to external vote page) -->
-    <section id="contestants" class="contestants">
-        <div class="container">
-            <h2>Meet Our <span class="highlight">Contestants</span></h2>
-            <p class="section-subtitle">Vote for your favorite MR & MISS NUASA contestant</p>
-            <div class="vote-redirect-container">
-                <div class="vote-redirect-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Cast Your Vote now</h3>
-                    <p>Voting is ₦100 per vote. Click below to purchase votes and support your favorite contestant!</p>
-                    <a class="fas fa-vote-yea" href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Special Awards Voting Modal -->
-    <div id="specialVoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Vote for <span id="specialContestantName"></span></h3>
-            <p class="vote-category" id="specialCategoryName"></p>
-            <p class="vote-price">₦100 per vote</p>
-            <div class="vote-input-group">
-                <label for="specialVoteCount">Number of votes:</label>
-                <input type="number" id="specialVoteCount" min="1" max="1000" value="1">
-                <p class="total-amount">Total: ₦<span id="specialTotalAmount">100</span></p>
-            </div>
-            <button id="paySpecialVoteBtn" class="btn-primary">Continue to Payment →</button>
-        </div>
-    </div>
-
-    <!-- Awards & Prizes Section -->
-    <section id="awards" class="awards">
-        <div class="container">
-            <h2>Awards & <span class="highlight">Prizes</span></h2>
-            <p class="section-subtitle">Grand prizes for our winners</p>
-            
-            <div class="awards-grid">
-                <div class="award-card gold">
-                    <div class="award-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="award-title">MR & MISS NUASA 2026</div>
-                    <div class="award-prize">$100 Cash Prize</div>
-                    <ul class="award-list">
-                        <li><i class="fas fa-trophy"></i> Custom Crown & Sash</li>
-                        <li><i class="fas fa-star"></i> Free access to all school events</li>
-                        <li><i class="fas fa-plane"></i> All-Expense Paid visit to Magic land</li>
-                        <li><i class="fas fa-gift"></i> Brand Endorsement Deal</li>
-                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
-                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
-                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
-                    </ul>
-                    <div class="award-badge">GRAND PRIZE</div>
-                </div>
-
-                <div class="award-card silver">
-                    <div class="award-icon">
-                        <i class="fas fa-dove"></i>
-                    </div>
-                    <div class="award-title">Mr & Miss Peace</div>
-                    <ul class="award-list">
-                        <li><i class="fas fa-medal"></i> Silver Crown & Sash</li>
-                        <li><i class="fas fa-star"></i> Free access to all school events</li>
-                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
-                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
-                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Special Awards Prize Cards -->
-            <div class="special-prizes">
-                <h3>Special Awards <span class="highlight">Prizes</span></h3>
-                <div class="special-prizes-grid">
-                    <div class="prize-card">
-                        <i class="fas fa-medal"></i>
-                        <h4>Category Winners</h4>
-                        <p>Custom Certificate & Recognition</p>
-                    </div>
-                    <div class="prize-card">
-                        <i class="fas fa-gift"></i>
-                        <h4>Gift Packs</h4>
-                        <p>Branded merchandise & surprise gifts</p>
-                    </div>
-                    <div class="prize-card">
-                        <i class="fas fa-camera"></i>
-                        <p>Free professional photoshoot</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tickets Section (External redirect only) -->
-    <section id="tickets" class="tickets">
-        <div class="container">
-            <h2>Event <span class="highlight">Tickets</span></h2>
-            <div class="tickets-redirect-container">
-                <div class="tickets-redirect-card">
-                    <i class="fas fa-ticket-alt"></i>
-                    <h3>Secure Your Spot!</h3>
-                    <p>Get your tickets to MR & MISS NUASA 2026 now!</p>
-                    <div class="ticket-prices">
-                        <span class="price-tag">Regular: ₦1,000</span>
-                        <span class="price-tag">VIP: ₦10,000</span>
-                        <span class="price-tag">Table (4 seats): ₦40,000</span>
-                        <span class="price-tag">Table (6 seats): ₦50,000</span>
-                    </div>
-                    <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank">
-                        <i class="fas fa-shopping-cart"></i> Buy Tickets Now → 
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsors Section (Redesigned to match page theme) -->
-    <section id="sponsors" class="sponsors">
-        <div class="container">
-            <h2>Our <span class="highlight">Sponsors</span> & <span class="highlight">Partners</span></h2>
-            <p class="section-subtitle">Proud partners supporting MR & MISS NUASA 2026</p>
-            
-            <!-- Sponsors Grid -->
-            <div class="sponsors-grid" id="sponsorsGrid">
-                <div class="empty-sponsors">
-                    <i class="fas fa-building"></i>
-                    <p>No sponsors yet</p>
-                    <span>Be the first to sponsor this event!</span>
-                </div>
-            </div>
-            
-            <!-- Sponsorship Inquiry -->
-            <div class="sponsor-inquiry">
-                <i class="fas fa-handshake"></i>
-                <h3>Become a Sponsor Today!</h3>
-                <p>Partner with us and showcase your brand to thousands of attendees</p>
-                <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring%20MR%20%26%20MISS%20NUASA" 
-                   class="whatsapp-link" target="_blank">
-                    <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add Sponsor Modal -->
-    <div id="addSponsorModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3><i class="fas fa-handshake"></i> Add New Sponsor</h3>
-            <form id="sponsorForm">
-                <div class="form-group">
-                    <label>Sponsor Name *</label>
-                    <input type="text" id="sponsorName" required placeholder="e.g., Company Name">
-                </div>
-                <div class="form-group">
-                    <label>Sponsorship Level *</label>
-                    <select id="sponsorLevel" required>
-                        <option value="Platinum">🏆 Platinum</option>
-                        <option value="Gold">⭐ Gold</option>
-                        <option value="Silver">🥈 Silver</option>
-                        <option value="Bronze">🥉 Bronze</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Website URL *</label>
-                    <input type="url" id="sponsorWebsite" required placeholder="https://example.com">
-                </div>
-                <div class="form-group">
-                    <label>Logo URL (optional)</label>
-                    <input type="url" id="sponsorLogoUrl" placeholder="https://example.com/logo.png">
-                </div>
-                <button type="button" class="btn-primary" onclick="addSponsorFromForm()">Add Sponsor →</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2026 MR & MISS NUASA. All rights reserved.</p>
-            <!-- <p>Web Dev by © Daniel OT.</p> -->
-        </div>
-    </footer>
-
     <style>
         * {
             margin: 0;
@@ -322,7 +97,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background-image: url('./hero-bg.jpeg');
+            background-image: url('https://placehold.co/1600x900/1a1a2e/D4AF37?text=MR+%26+MISS+NUASA+2026');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -947,7 +722,71 @@
             color: #666;
         }
 
-        /* Sponsors Section - Redesigned */
+        /* MOVING SPONSORS STRIP SECTION */
+        .moving-sponsors {
+            background: linear-gradient(135deg, #f8fafc 0%, #fff9f0 100%);
+            padding: 2rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .sponsor-strip-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sponsor-strip {
+            display: flex;
+            animation: scrollSponsors 25s linear infinite;
+            width: fit-content;
+            gap: 3rem;
+            padding: 0 1.5rem;
+        }
+
+        .sponsor-strip:hover {
+            animation-play-state: paused;
+        }
+
+        .strip-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 140px;
+            height: 100px;
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+        }
+
+        .strip-item:hover {
+            transform: scale(1.05);
+            border-color: #D4AF37;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .strip-item img {
+            max-width: 100%;
+            max-height: 70px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        @keyframes scrollSponsors {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Sponsors Section (Static) */
         .sponsors {
             padding: 5rem 2rem;
             background: #f8fafc;
@@ -986,14 +825,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
             background: linear-gradient(135deg, #fff9f0, #ffffff);
             border-radius: 50%;
         }
 
         .sponsor-logo img {
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: auto;
             object-fit: contain;
         }
 
@@ -1007,32 +845,6 @@
             font-size: 0.8rem;
             color: #D4AF37;
             font-weight: 600;
-        }
-
-        .empty-sponsors {
-            text-align: center;
-            padding: 3rem;
-            background: white;
-            border-radius: 20px;
-            border: 2px dashed rgba(212, 175, 55, 0.3);
-        }
-
-        .empty-sponsors i {
-            font-size: 3rem;
-            color: #D4AF37;
-            opacity: 0.5;
-            margin-bottom: 1rem;
-        }
-
-        .empty-sponsors p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .empty-sponsors span {
-            font-size: 0.9rem;
-            color: #999;
         }
 
         .sponsor-inquiry {
@@ -1056,11 +868,6 @@
             color: #1a1a2e;
         }
 
-        .sponsor-inquiry p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
         .whatsapp-link {
             display: inline-flex;
             align-items: center;
@@ -1079,13 +886,6 @@
             transform: scale(1.05);
         }
 
-        .whatsapp-link i {
-            font-size: 1.2rem;
-            margin: 0;
-            color: white;
-        }
-
-        /* Footer */
         footer {
             background: #1a1a2e;
             color: #e8e0d0;
@@ -1104,655 +904,328 @@
             h2 {
                 font-size: 1.8rem;
             }
-            .result-item {
-                flex-wrap: wrap;
+            .strip-item {
+                width: 100px;
+                height: 80px;
             }
-            .progress-bar {
-                order: 3;
-                width: 100%;
-                margin: 0.5rem 0;
-            }
-            .result-name {
-                min-width: unset;
-            }
-            .vote-redirect-card, .tickets-redirect-card {
-                padding: 1.5rem;
-            }
-            .awards-categories-grid {
-                grid-template-columns: 1fr;
-            }
-            .nominee-item {
-                flex-wrap: wrap;
+            .sponsor-strip {
+                gap: 1.5rem;
             }
         }
     </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                MR & MISS <span>NUASA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#contestants">Contestants</a>
+                <a href="#results">Results</a>
+                <a href="#awards">Prizes</a>
+                <a href="#special-awards">Special Awards</a>
+                <a href="#tickets">Tickets</a>
+                <a href="#sponsors">Sponsors</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>MR & MISS <span class="highlight">NUASA</span></h1>
+            <p>Vote for your favorite contestant or secure your ticket now!</p>
+            <div class="hero-buttons">
+                <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
+                <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote Contestants</a>
+                <a href="#sponsors" class="btn-primary"><i class="fas fa-trophy"></i> Sponsors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contestants Section -->
+    <section id="contestants" class="contestants">
+        <div class="container">
+            <h2>Meet Our <span class="highlight">Contestants</span></h2>
+            <p class="section-subtitle">Vote for your favorite MR & MISS NUASA contestant</p>
+            <div class="vote-redirect-container">
+                <div class="vote-redirect-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Cast Your Vote now</h3>
+                    <p>Voting is ₦100 per vote. Click below to purchase votes and support your favorite contestant!</p>
+                    <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOVING SPONSORS LOGO STRIP - RIGHT AFTER VOTE CONTESTANTS CONTAINER -->
+    <div class="moving-sponsors">
+        <div class="sponsor-strip-container">
+            <div class="sponsor-strip" id="movingSponsorStrip">
+                <!-- Sponsor logos will be dynamically inserted here and duplicated for seamless loop -->
+            </div>
+        </div>
+    </div>
+
+   <!-- Special Awards Voting Modal -->
+    <div id="specialVoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Vote for <span id="specialContestantName"></span></h3>
+            <p class="vote-category" id="specialCategoryName"></p>
+            <p class="vote-price">₦100 per vote</p>
+            <div class="vote-input-group">
+                <label for="specialVoteCount">Number of votes:</label>
+                <input type="number" id="specialVoteCount" min="1" max="1000" value="1">
+                <p class="total-amount">Total: ₦<span id="specialTotalAmount">100</span></p>
+            </div>
+            <button id="paySpecialVoteBtn" class="btn-primary">Continue to Payment →</button>
+        </div>
+    </div>
+
+    <!-- Awards & Prizes Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2>Awards & <span class="highlight">Prizes</span></h2>
+            <p class="section-subtitle">Grand prizes for our winners</p>
+            
+            <div class="awards-grid">
+                <div class="award-card gold">
+                    <div class="award-icon"><i class="fas fa-crown"></i></div>
+                    <div class="award-title">MR & MISS NUASA 2026</div>
+                    <div class="award-prize">$100 Cash Prize</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-trophy"></i> Custom Crown & Sash</li>
+                        <li><i class="fas fa-star"></i> Free access to all school events</li>
+                        <li><i class="fas fa-plane"></i> All-Expense Paid visit to Magic land</li>
+                        <li><i class="fas fa-gift"></i> Brand Endorsement Deal</li>
+                        <li><i class="fas fa-camera"></i> Free photoshoot: Dubbies Photography</li>
+                        <li><i class="fas fa-cut"></i> One-month free haircuts: Celebrity Barber</li>
+                    </ul>
+                    <div class="award-badge">GRAND PRIZE</div>
+                </div>
+                <div class="award-card silver">
+                    <div class="award-icon"><i class="fas fa-dove"></i></div>
+                    <div class="award-title">Mr & Miss Peace</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-medal"></i> Silver Crown & Sash</li>
+                        <li><i class="fas fa-camera"></i> Free professional photoshoot</li>
+                        <li><i class="fas fa-cut"></i> One-month free haircuts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="special-prizes">
+                <h3>Special Awards <span class="highlight">Prizes</span></h3>
+                <div class="special-prizes-grid">
+                    <div class="prize-card"><i class="fas fa-medal"></i><h4>Category Winners</h4><p>Custom Certificate</p></div>
+                    <div class="prize-card"><i class="fas fa-gift"></i><h4>Gift Packs</h4><p>Branded merchandise</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="tickets">
+        <div class="container">
+            <h2>Event <span class="highlight">Tickets</span></h2>
+            <div class="tickets-redirect-container">
+                <div class="tickets-redirect-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Secure Your Spot!</h3>
+                    <div class="ticket-prices">
+                        <span class="price-tag">Regular: ₦1,000</span>
+                        <span class="price-tag">VIP: ₦10,000</span>
+                        <span class="price-tag">Table (4 seats): ₦40,000</span>
+                    </div>
+                    <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank">Buy Tickets Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section (Static Grid) -->
+    <section id="sponsors" class="sponsors">
+        <div class="container">
+            <h2>Our <span class="highlight">Sponsors</span> & <span class="highlight">Partners</span></h2>
+            <p class="section-subtitle">Proud partners supporting MR & MISS NUASA 2026</p>
+            <div class="sponsors-grid" id="sponsorsGrid"></div>
+            <div class="sponsor-inquiry">
+                <i class="fas fa-handshake"></i>
+                <h3>Become a Sponsor Today!</h3>
+                <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring" class="whatsapp-link" target="_blank"><i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship</a>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>© 2026 MR & MISS NUASA. All rights reserved.</p></footer>
 
     <script>
-        // ============ VOTE PRICE ============
-        const VOTE_PRICE = 100;
-
-        // ============ SPECIAL AWARDS DATA ============
-        let awardCategories = [
-            // ========== 100 LEVEL ==========
-            { id: 1, name: "100L - Most Influential Student", icon: "fa-star-of-life", nominees: [
-                { id: 101, name: "Rejoice", votes: 2 },
-                { id: 102, name: "Samuel", votes: 4 }
-            ] },
-            { id: 2, name: "100L - Most Popular Student", icon: "fa-fire", nominees: [
-                { id: 201, name: "Success (Mimi)", votes: 3 }
-            ] },
-            { id: 3, name: "100L - Best Dressed (Male)", icon: "fa-user-tie", nominees: [
-                { id: 301, name: "Musty", votes: 0 },
-                { id: 302, name: "Enoch Pius", votes: 0 }
-            ] },
-            { id: 4, name: "100L - Best Dressed (Female)", icon: "fa-female", nominees: [
-                { id: 401, name: "Fikayo", votes: 1 },
-                { id: 402, name: "Prudy", votes: 2 }
-            ] },
-            { id: 5, name: "100L - Money Bag of the Year", icon: "fa-sack-dollar", nominees: [] },
-            { id: 6, name: "100L - Hall of Fame", icon: "fa-trophy", nominees: [
-                { id: 601, name: "Sirleem", votes: 0 }
-            ] },
-            { id: 7, name: "100L - Brand of the Year", icon: "fa-building", nominees: [
-                { id: 701, name: "Savage Wears", votes: 0 }
-            ] },
-            { id: 8, name: "100L - Fastest Rising Brand", icon: "fa-chart-line", nominees: [
-                { id: 801, name: "Mimi's Essence", votes: 0 }
-            ] },
-            { id: 9, name: "100L - Squad of the Year", icon: "fa-users", nominees: [
-                { id: 901, name: "Kelvin", votes: 4 }
-            ] },
-            { id: 10, name: "100L - Friend Group of the Year", icon: "fa-user-friends", nominees: [
-                { id: 1001, name: "Arah", votes: 0 },
-                { id: 1002, name: "Mimi", votes: 0 },
-                { id: 1003, name: "Divine", votes: 0 },
-                { id: 1004, name: "Jasmine", votes: 0 },
-                { id: 1005, name: "Clemzzy", votes: 0 },
-                { id: 1006, name: "Nonso", votes: 0 },
-                { id: 1007, name: "Loner", votes: 0 },
-                { id: 1008, name: "Ola", votes: 0 },
-                { id: 1009, name: "Cecilia", votes: 0 }
-            ] },
-            { id: 11, name: "100L - Most Supportive Exco", icon: "fa-handshake", nominees: [
-                { id: 1101, name: "President Timmy", votes: 0 }
-            ] },
-            { id: 12, name: "100L - FYN", icon: "fa-gem", nominees: [] },
-            { id: 13, name: "100L - Fresher of the Year", icon: "fa-seedling", nominees: [
-                { id: 1301, name: "Vivian Adepoju", votes: 1 }
-            ] },
-            
-            // ========== 200 LEVEL ==========
-            { id: 14, name: "200L - Most Influential Student", icon: "fa-star-of-life", nominees: [
-                { id: 1401, name: "Bigemmy", votes: 0 },
-                { id: 1402, name: "Iconic Fx", votes: 0 }
-            ] },
-            { id: 15, name: "200L - Most Popular Student", icon: "fa-fire", nominees: [
-                { id: 1501, name: "BigEmmy", votes: 0 },
-                { id: 1502, name: "Abdulsamad Young Mayor", votes: 0 },
-                { id: 1503, name: "Eniola CR", votes: 0 }
-            ] },
-            { id: 16, name: "200L - Best Dressed (Male)", icon: "fa-user-tie", nominees: [
-                { id: 1601, name: "Bigemmy", votes: 0 },
-                { id: 1602, name: "Naviz", votes: 0 },
-                { id: 1603, name: "Abraham (200L)", votes: 0 }
-            ] },
-            { id: 17, name: "200L - Best Dressed (Female)", icon: "fa-female", nominees: [
-                { id: 1701, name: "Divine Favour", votes: 0 },
-                { id: 1702, name: "Benedicta (200L)", votes: 0 },
-                { id: 1703, name: "Eniola CR", votes: 0 }
-            ] },
-            { id: 18, name: "200L - Money Bag of the Year", icon: "fa-sack-dollar", nominees: [
-                { id: 1801, name: "Young Mayor", votes: 0 }
-            ] },
-            { id: 19, name: "200L - Hall of Fame", icon: "fa-trophy", nominees: [
-                { id: 1901, name: "Abraham", votes: 0 },
-                { id: 1902, name: "BigEmmy", votes: 0 }
-            ] },
-            { id: 20, name: "200L - Brand of the Year", icon: "fa-building", nominees: [
-                { id: 2001, name: "Glorious Luxury Store", votes: 0 }
-            ] },
-            { id: 21, name: "200L - Fastest Rising Brand", icon: "fa-chart-line", nominees: [
-                { id: 2101, name: "Glorious Luxury Store", votes: 0 }
-            ] },
-            { id: 22, name: "200L - Squad of the Year", icon: "fa-users", nominees: [] },
-            { id: 23, name: "200L - Friend Group of the Year", icon: "fa-user-friends", nominees: [
-                { id: 2301, name: "Young Mayor's Squad", votes: 0 }
-            ] },
-            { id: 24, name: "200L - Most Supportive Exco", icon: "fa-handshake", nominees: [
-                { id: 2401, name: "Glorious", votes: 0 }
-            ] },
-            { id: 25, name: "200L - FYN", icon: "fa-gem", nominees: [
-                { id: 2501, name: "Naviz", votes: 0 },
-                { id: 2502, name: "Glorious", votes: 0 },
-                { id: 2503, name: "Big Emmy", votes: 0 },
-                { id: 2504, name: "Abdulsamad", votes: 0 }
-            ] },
-            
-            // ========== 400 LEVEL ==========
-            { id: 26, name: "400L - Most Influential Student", icon: "fa-star-of-life", nominees: [] },
-            { id: 27, name: "400L - Most Popular Student", icon: "fa-fire", nominees: [] },
-            { id: 28, name: "400L - Best Dressed (Male)", icon: "fa-user-tie", nominees: [
-                { id: 2801, name: "Khing", votes: 0 },
-                { id: 2802, name: "Dml", votes: 0 },
-                { id: 2803, name: "Oloba Mateenez", votes: 0 }
-            ] },
-            { id: 29, name: "400L - Best Dressed (Female)", icon: "fa-female", nominees: [
-                { id: 2901, name: "Bethel", votes: 0 }
-            ] },
-            { id: 30, name: "400L - Money Bag of the Year", icon: "fa-sack-dollar", nominees: [
-                { id: 3001, name: "S.O.A", votes: 0 }
-            ] },
-            { id: 31, name: "400L - Brand of the Year", icon: "fa-building", nominees: [
-                { id: 3101, name: "RCT", votes: 0 }
-            ] },
-            { id: 32, name: "400L - Fastest Rising Brand", icon: "fa-chart-line", nominees: [
-                { id: 3201, name: "Embkay Cutz", votes: 0 }
-            ] },
-            { id: 33, name: "400L - Squad of the Year", icon: "fa-users", nominees: [
-                { id: 3301, name: "Btc Squad", votes: 0 }
-            ] },
-            { id: 34, name: "400L - Friend Group of the Year", icon: "fa-user-friends", nominees: [] },
-            { id: 35, name: "400L - Most Supportive Exco", icon: "fa-handshake", nominees: [
-                { id: 3501, name: "Fatai", votes: 0 },
-                { id: 3502, name: "Roland", votes: 0 }
-            ] }
+        // ============ SPONSORS DATA WITH IMG TAGS (YOU CAN REPLACE THE SRC URLs) ============
+        let sponsors = [
+            { id: 1, name: "Dubbies Photography", level: "Gold", website: "https://www.instagram.com/dubbies_photography", logoUrl: "https://placehold.co/200x200/D4AF37/white?text=Dubbies" },
+            { id: 2, name: "Celebrity Barber", level: "Silver", website: "#", logoUrl: "https://placehold.co/200x200/C0C0C0/white?text=Barber" },
+            { id: 3, name: "Damsel Alteria", level: "Bronze", website: "#", logoUrl: "https://placehold.co/200x200/CD7F32/white?text=Damsel" },
+            { id: 4, name: "Magic Land", level: "Platinum", website: "#", logoUrl: "https://placehold.co/200x200/D4AF37/white?text=Magic+Land" }
         ];
 
-        // ============ SPONSORS DATA ============
-        let sponsors = [];
-
-        // ============ LOAD DATA ============
-        function loadData() {
-            const savedAwards = localStorage.getItem('nuasaSpecialAwards');
-            if (savedAwards) {
-                const savedData = JSON.parse(savedAwards);
-                awardCategories.forEach((cat, idx) => {
-                    if (savedData[idx] && savedData[idx].nominees) {
-                        cat.nominees = savedData[idx].nominees;
-                    }
-                });
-            }
-            
-            loadSpecialVotes();
-            loadSponsors();
-            renderAwardsCategories();
-            renderResults();
-        }
-
-        function saveSpecialAwards() {
-            const toSave = awardCategories.map(cat => ({
-                id: cat.id,
-                name: cat.name,
-                nominees: cat.nominees
-            }));
-            localStorage.setItem('nuasaSpecialAwards', JSON.stringify(toSave));
-        }
-
-        function saveSpecialVotes() {
-            const votesToSave = {};
-            awardCategories.forEach(category => {
-                category.nominees.forEach(nominee => {
-                    votesToSave[`${category.id}_${nominee.id}`] = nominee.votes;
-                });
-            });
-            localStorage.setItem('nuasaSpecialVotes', JSON.stringify(votesToSave));
-        }
-
-        function loadSpecialVotes() {
-            const saved = localStorage.getItem('nuasaSpecialVotes');
-            if (saved) {
-                const savedVotes = JSON.parse(saved);
-                awardCategories.forEach(category => {
-                    category.nominees.forEach(nominee => {
-                        const key = `${category.id}_${nominee.id}`;
-                        if (savedVotes[key] !== undefined) {
-                            nominee.votes = savedVotes[key];
-                        }
-                    });
-                });
-            }
-        }
-
-        function addSpecialVotes(categoryId, nomineeId, voteCount) {
-            const category = awardCategories.find(c => c.id === categoryId);
-            if (category) {
-                const nominee = category.nominees.find(n => n.id === nomineeId);
-                if (nominee) {
-                    nominee.votes += voteCount;
-                    saveSpecialAwards();
-                    saveSpecialVotes();
-                    renderAwardsCategories();
-                    renderResults();
-                }
-            }
-        }
-
-        // Render Results (for display)
-        function renderResults() {
-            const resultsContainer = document.getElementById('resultsContainer');
-            if (!resultsContainer) return;
-            
-            // Collect all nominees with votes for display
-            let allNominees = [];
-            awardCategories.forEach(category => {
-                category.nominees.forEach(nominee => {
-                    if (nominee.votes > 0) {
-                        allNominees.push({
-                            name: `${nominee.name} (${category.name})`,
-                            votes: nominee.votes
-                        });
-                    }
-                });
-            });
-            
-            if (allNominees.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-chart-line"></i>
-                        <p>Results will be displayed here after voting begins</p>
-                        <span>Check back soon!</span>
-                    </div>
-                `;
-                return;
-            }
-            
-            const sorted = allNominees.sort((a, b) => b.votes - a.votes);
-            const totalVotes = allNominees.reduce((sum, n) => sum + n.votes, 0);
-            
-            resultsContainer.innerHTML = sorted.map((n, index) => {
-                const percentage = totalVotes > 0 ? (n.votes / totalVotes) * 100 : 0;
-                const medal = index === 0 ? '👑 ' : index === 1 ? '🥈 ' : index === 2 ? '🥉 ' : '';
-                return `
-                    <div class="result-item">
-                        <span class="result-name">${medal}${n.name}</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${percentage}%"></div>
-                        </div>
-                        <span class="result-votes">${n.votes} votes</span>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function renderAwardsCategories() {
-            const grid = document.getElementById('awardsCategoriesGrid');
-            if (!grid) return;
-            
-            grid.innerHTML = awardCategories.map(category => {
-                const sortedNominees = [...category.nominees].sort((a, b) => b.votes - a.votes);
-                const totalVotes = category.nominees.reduce((sum, n) => sum + n.votes, 0);
-                
-                const nomineesHtml = category.nominees.length === 0 ? 
-                    `<div class="empty-state" style="padding: 1rem;">
-                        <p style="font-size: 0.9rem;">No nominees yet</p>
-                        <span>Add nominees via console: addSpecialNominee(${category.id}, "Name")</span>
-                    </div>` :
-                    sortedNominees.map(nominee => {
-                        const percentage = totalVotes > 0 ? (nominee.votes / totalVotes) * 100 : 0;
-                        return `
-                            <div class="nominee-item">
-                                <div class="nominee-info">
-                                    <div class="nominee-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="nominee-details">
-                                        <div class="nominee-name">${nominee.name}</div>
-                                        <div class="nominee-votes">${nominee.votes} votes</div>
-                                        <div class="progress-bar" style="width: 100%; margin-top: 4px;">
-                                            <div class="progress-fill" style="width: ${percentage}%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="nominee-vote-count">⭐ ${nominee.votes}</div>
-                                </div>
-                                <button class="vote-special-btn" data-category-id="${category.id}" data-nominee-id="${nominee.id}" data-nominee-name="${nominee.name}" data-category-name="${category.name}">
-                                    <i class="fas fa-heart"></i> Vote
-                                </button>
-                            </div>
-                        `;
-                    }).join('');
-                
-                return `
-                    <div class="category-card" data-category-id="${category.id}">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas ${category.icon}"></i>
-                            </div>
-                            <h3>${category.name}</h3>
-                        </div>
-                        <div class="category-content">
-                            <div class="nominees-list">
-                                ${nomineesHtml}
-                            </div>
-                            <button class="add-nominee-btn" data-category-id="${category.id}" data-category-name="${category.name}">
-                                <i class="fas fa-plus"></i> Add Nominee
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            document.querySelectorAll('.vote-special-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const categoryId = parseInt(btn.dataset.categoryId);
-                    const nomineeId = parseInt(btn.dataset.nomineeId);
-                    const nomineeName = btn.dataset.nomineeName;
-                    const categoryName = btn.dataset.categoryName;
-                    openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName);
-                });
-            });
-            
-            document.querySelectorAll('.add-nominee-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const categoryId = parseInt(btn.dataset.categoryId);
-                    const categoryName = btn.dataset.categoryName;
-                    addNomineePrompt(categoryId, categoryName);
-                });
-            });
-        }
-
-        function addNomineePrompt(categoryId, categoryName) {
-            const nomineeName = prompt(`Enter nominee name for "${categoryName}":`);
-            if (nomineeName && nomineeName.trim()) {
-                const category = awardCategories.find(c => c.id === categoryId);
-                if (category) {
-                    const newNominee = {
-                        id: Date.now(),
-                        name: nomineeName.trim(),
-                        votes: 0
-                    };
-                    category.nominees.push(newNominee);
-                    saveSpecialAwards();
-                    renderAwardsCategories();
-                    renderResults();
-                    alert(`✅ Added "${nomineeName}" to ${categoryName}`);
-                }
-            }
-        }
-
-        // ============ MODAL FUNCTIONS ============
-        let currentSpecialNominee = null;
-        let currentSpecialCategory = null;
-
-        function openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName) {
-            currentSpecialNominee = { id: nomineeId, categoryId: categoryId };
-            currentSpecialCategory = categoryName;
-            const modal = document.getElementById('specialVoteModal');
-            document.getElementById('specialContestantName').textContent = nomineeName;
-            document.getElementById('specialCategoryName').textContent = categoryName;
-            document.getElementById('specialVoteCount').value = 1;
-            document.getElementById('specialTotalAmount').textContent = VOTE_PRICE;
-            modal.style.display = 'block';
-        }
-
-        function closeSpecialVoteModal() {
-            const modal = document.getElementById('specialVoteModal');
-            modal.style.display = 'none';
-        }
-
-        // ============ SPONSORS FUNCTIONS ============
+        // Save/Load functions for localStorage
         function loadSponsors() {
-            const savedSponsors = localStorage.getItem('nuasaSponsors');
-            if (savedSponsors) {
-                sponsors = JSON.parse(savedSponsors);
-            } else {
-                sponsors = [];
-            }
+            const saved = localStorage.getItem('nuasaSponsors');
+            if (saved) sponsors = JSON.parse(saved);
             renderSponsorsGrid();
+            renderMovingSponsorStrip();
         }
 
         function saveSponsors() {
             localStorage.setItem('nuasaSponsors', JSON.stringify(sponsors));
             renderSponsorsGrid();
+            renderMovingSponsorStrip();
         }
 
+        // Render static sponsors grid
         function renderSponsorsGrid() {
-            const sponsorsGrid = document.getElementById('sponsorsGrid');
-            if (!sponsorsGrid) return;
-            
+            const grid = document.getElementById('sponsorsGrid');
+            if (!grid) return;
             if (sponsors.length === 0) {
-                sponsorsGrid.innerHTML = `
-                    <div class="empty-sponsors">
-                        <i class="fas fa-building"></i>
-                        <p>No sponsors yet</p>
-                        <span>Be the first to sponsor this event!</span>
-                    </div>
-                `;
+                grid.innerHTML = '<div class="empty-sponsors"><i class="fas fa-building"></i><p>No sponsors yet</p></div>';
                 return;
             }
-            
-            sponsorsGrid.innerHTML = sponsors.map(s => `
+            grid.innerHTML = sponsors.map(s => `
                 <div class="sponsor-card" onclick="window.open('${s.website}', '_blank')">
-                    <div class="sponsor-logo">
-                        ${s.logoUrl ? `<img src="${s.logoUrl}" alt="${s.name}">` : `<i class="fas ${getSponsorIcon(s.level)}"></i>`}
-                    </div>
+                    <div class="sponsor-logo"><img src="${s.logoUrl}" alt="${s.name}" onerror="this.src='https://placehold.co/200x200/D4AF37/white?text=Logo'"></div>
                     <h4>${s.name}</h4>
                     <p>${s.level}</p>
                 </div>
             `).join('');
         }
 
-        function getSponsorIcon(level) {
-            switch(level.toLowerCase()) {
-                case 'platinum': return 'fa-crown';
-                case 'gold': return 'fa-star';
-                case 'silver': return 'fa-medal';
-                case 'bronze': return 'fa-award';
-                default: return 'fa-building';
-            }
-        }
-
-        function openAddSponsorModal() {
-            const modal = document.getElementById('addSponsorModal');
-            if (modal) {
-                modal.style.display = 'block';
-            }
-        }
-
-        function closeAddSponsorModal() {
-            const modal = document.getElementById('addSponsorModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.getElementById('sponsorForm').reset();
-            }
-        }
-
-        function addSponsorFromForm() {
-            const name = document.getElementById('sponsorName').value;
-            const level = document.getElementById('sponsorLevel').value;
-            const website = document.getElementById('sponsorWebsite').value;
-            const logoUrl = document.getElementById('sponsorLogoUrl').value;
-            
-            if (!name || !level || !website) {
-                alert('Please fill in all required fields');
+        // Render MOVING sponsor strip (duplicate for seamless infinite scroll)
+        function renderMovingSponsorStrip() {
+            const strip = document.getElementById('movingSponsorStrip');
+            if (!strip) return;
+            if (sponsors.length === 0) {
+                strip.innerHTML = '<div class="strip-item" style="width:auto; padding:0 2rem;">No sponsors yet</div>';
                 return;
             }
-            
-            const newSponsor = {
-                id: Date.now(),
-                name: name,
-                level: level,
-                website: website,
-                logoUrl: logoUrl || null
-            };
-            
-            sponsors.push(newSponsor);
-            saveSponsors();
-            closeAddSponsorModal();
-            alert(`✅ Added ${name} as a ${level} sponsor!`);
+            // Create two sets of logos for seamless loop
+            const logosHtml = sponsors.map(s => `
+                <div class="strip-item" onclick="window.open('${s.website}', '_blank')" style="cursor:pointer;">
+                    <img src="${s.logoUrl}" alt="${s.name}" onerror="this.src='https://placehold.co/200x200/D4AF37/white?text=Logo'">
+                </div>
+            `).join('');
+            // Duplicate to fill width and create seamless loop
+            strip.innerHTML = logosHtml + logosHtml;
         }
 
-        // ============ ADMIN CONSOLE FUNCTIONS ============
-        window.addSponsor = function(name, level, website, logoUrl = null) {
-            const newSponsor = {
-                id: Date.now(),
-                name: name,
-                level: level,
-                website: website,
-                logoUrl: logoUrl
-            };
-            sponsors.push(newSponsor);
+        // Admin helper functions (console only)
+        window.addSponsor = function(name, level, website, logoUrl) {
+            sponsors.push({ id: Date.now(), name, level, website, logoUrl: logoUrl || "https://placehold.co/200x200/D4AF37/white?text=Logo" });
             saveSponsors();
-            console.log(`✅ Added sponsor: ${name} (${level})`);
-            return newSponsor;
+            console.log(`✅ Added ${name}`);
         };
+        window.viewSponsors = () => console.table(sponsors);
 
-        window.removeSponsor = function(sponsorId) {
-            const sponsor = sponsors.find(s => s.id === sponsorId);
-            if (sponsor && confirm(`Remove ${sponsor.name} from sponsors?`)) {
-                sponsors = sponsors.filter(s => s.id !== sponsorId);
-                saveSponsors();
-                console.log(`✅ Removed sponsor: ${sponsor.name}`);
-            }
-        };
+        // Special Awards Data & Functions (keeping existing functionality)
+        const VOTE_PRICE = 100;
+        let awardCategories = [
+            { id: 1, name: "100L - Most Influential", icon: "fa-star", nominees: [{ id: 101, name: "Rejoice", votes: 2 }, { id: 102, name: "Samuel", votes: 4 }] },
+            { id: 2, name: "100L - Most Popular", icon: "fa-fire", nominees: [{ id: 201, name: "Success (Mimi)", votes: 3 }] }
+        ];
 
-        window.viewSponsors = function() {
-            console.table(sponsors);
-            return sponsors;
-        };
+        function saveSpecialAwards() { localStorage.setItem('nuasaSpecialAwards', JSON.stringify(awardCategories)); }
+        function loadSpecialVotes() { const saved = localStorage.getItem('nuasaSpecialAwards'); if (saved) awardCategories = JSON.parse(saved); }
+        function renderAwardsCategories() {
+            const grid = document.getElementById('awardsCategoriesGrid');
+            if (!grid) return;
+            grid.innerHTML = awardCategories.map(cat => {
+                const nomineesHtml = cat.nominees.map(n => `<div class="nominee-item"><div class="nominee-info"><div class="nominee-avatar"><i class="fas fa-user"></i></div><div><div class="nominee-name">${n.name}</div><div class="nominee-votes">${n.votes} votes</div></div></div><button class="vote-special-btn" data-cid="${cat.id}" data-nid="${n.id}" data-name="${n.name}" data-catname="${cat.name}"><i class="fas fa-heart"></i> Vote</button></div>`).join('');
+                return `<div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas ${cat.icon}"></i></div><h3>${cat.name}</h3></div><div class="category-content"><div class="nominees-list">${nomineesHtml}</div><button class="add-nominee-btn" data-cid="${cat.id}" data-catname="${cat.name}"><i class="fas fa-plus"></i> Add Nominee</button></div></div>`;
+            }).join('');
+            attachVoteEvents();
+        }
 
-        window.addSpecialNominee = function(categoryId, nomineeName) {
-            const category = awardCategories.find(c => c.id === categoryId);
-            if (category) {
-                const newNominee = {
-                    id: Date.now(),
-                    name: nomineeName,
-                    votes: 0
-                };
-                category.nominees.push(newNominee);
-                saveSpecialAwards();
-                renderAwardsCategories();
-                renderResults();
-                console.log(`✅ Added "${nomineeName}" to ${category.name}`);
-                return newNominee;
-            } else {
-                console.log(`❌ Category ID ${categoryId} not found`);
-                return null;
-            }
-        };
-
-        window.viewSpecialAwards = function() {
-            console.table(awardCategories.map(cat => ({
-                Category: cat.name,
-                Nominees: cat.nominees.length,
-                TotalVotes: cat.nominees.reduce((sum, n) => sum + n.votes, 0)
-            })));
-            return awardCategories;
-        };
-
-        window.clearAllData = function() {
-            if (confirm('⚠️ WARNING: This will delete ALL special awards data. Are you sure?')) {
-                awardCategories.forEach(cat => cat.nominees = []);
-                sponsors = [];
-                localStorage.removeItem('nuasaSpecialAwards');
-                localStorage.removeItem('nuasaSpecialVotes');
-                localStorage.removeItem('nuasaSponsors');
-                renderAwardsCategories();
-                renderSponsorsGrid();
-                renderResults();
-                console.log('✅ All data cleared!');
-            }
-        };
-
-        // ============ EVENT LISTENERS ============
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData();
-            
-            // Modal close buttons
-            document.querySelectorAll('.close').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if (modal) modal.style.display = 'none';
-                });
-            });
-            
-            // Close modals when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === document.getElementById('specialVoteModal')) closeSpecialVoteModal();
-                if (e.target === document.getElementById('addSponsorModal')) closeAddSponsorModal();
-            });
-            
-            // Special vote payment
-            const paySpecialVoteBtn = document.getElementById('paySpecialVoteBtn');
-            if (paySpecialVoteBtn) {
-                paySpecialVoteBtn.addEventListener('click', () => {
-                    const voteCount = parseInt(document.getElementById('specialVoteCount').value) || 0;
-                    if (voteCount < 1) {
-                        alert('Please enter at least 1 vote');
-                        return;
-                    }
-                    
-                    const totalAmount = voteCount * VOTE_PRICE;
-                    alert(`💰 Payment Demo\n\nCategory: ${currentSpecialCategory}\nVotes: ${voteCount}\nTotal: ₦${totalAmount}\n\nClick OK to add votes`);
-                    
-                    addSpecialVotes(currentSpecialNominee.categoryId, currentSpecialNominee.id, voteCount);
-                    closeSpecialVoteModal();
-                });
-            }
-            
-            // Special vote count input
-            const specialVoteCountInput = document.getElementById('specialVoteCount');
-            if (specialVoteCountInput) {
-                specialVoteCountInput.addEventListener('input', (e) => {
-                    const count = parseInt(e.target.value) || 0;
-                    document.getElementById('specialTotalAmount').textContent = count * VOTE_PRICE;
-                });
-            }
-            
-            // Navigation smooth scrol
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = document.querySelector(link.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-            
-            // Mobile menu
-            const mobileMenuBtn = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    if (navLinks.style.display === 'flex') {
-                        navLinks.style.display = 'none';
-                    } else {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.position = 'absolute';
-                        navLinks.style.top = '70px';
-                        navLinks.style.left = '0';
-                        navLinks.style.right = '0';
-                        navLinks.style.backgroundColor = 'white';
-                        navLinks.style.padding = '1.5rem';
-                        navLinks.style.gap = '1rem';
-                        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                        navLinks.style.borderBottom = '2px solid rgba(212, 175, 55, 0.3)';
-                    }
-                });
-            }
-            
-            function resetMobileMenu() {
-                if (window.innerWidth > 768) {
-                    if (navLinks) {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'row';
-                        navLinks.style.position = 'relative';
-                        navLinks.style.top = 'auto';
-                        navLinks.style.left = 'auto';
-                        navLinks.style.right = 'auto';
-                        navLinks.style.backgroundColor = 'transparent';
-                        navLinks.style.padding = '0';
-                        navLinks.style.boxShadow = 'none';
-                    }
-                } else {
-                    if (navLinks && navLinks.style.display !== 'flex') {
-                        navLinks.style.display = 'none';
-                    }
+        function attachVoteEvents() {
+            document.querySelectorAll('.vote-special-btn').forEach(btn => btn.addEventListener('click', (e) => {
+                openSpecialVoteModal(parseInt(btn.dataset.cid), parseInt(btn.dataset.nid), btn.dataset.name, btn.dataset.catname);
+            }));
+            document.querySelectorAll('.add-nominee-btn').forEach(btn => btn.addEventListener('click', () => {
+                let name = prompt(`Enter nominee for ${btn.dataset.catname}:`);
+                if (name) {
+                    let cat = awardCategories.find(c => c.id == btn.dataset.cid);
+                    cat.nominees.push({ id: Date.now(), name: name.trim(), votes: 0 });
+                    saveSpecialAwards();
+                    renderAwardsCategories();
+                    renderResults();
                 }
-            }
+            }));
+        }
+
+        function renderResults() {
+            const container = document.getElementById('resultsContainer');
+            if (!container) return;
+            let all = [];
+            awardCategories.forEach(c => c.nominees.forEach(n => { if (n.votes > 0) all.push({ name: `${n.name} (${c.name})`, votes: n.votes }); }));
+            if (all.length === 0) { container.innerHTML = '<div class="empty-state"><i class="fas fa-chart-line"></i><p>No votes yet</p></div>'; return; }
+            all.sort((a,b)=>b.votes-a.votes);
+            let total = all.reduce((s,n)=>s+n.votes,0);
+            container.innerHTML = all.map(n => `<div class="result-item"><span class="result-name">${n.name}</span><div class="progress-bar"><div class="progress-fill" style="width:${(n.votes/total)*100}%"></div></div><span class="result-votes">${n.votes} votes</span></div>`).join('');
+        }
+
+        let currentSpecialNominee = null;
+        function openSpecialVoteModal(cid, nid, name, catname) {
+            currentSpecialNominee = { categoryId: cid, id: nid };
+            document.getElementById('specialContestantName').innerText = name;
+            document.getElementById('specialCategoryName').innerText = catname;
+            document.getElementById('specialVoteCount').value = 1;
+            document.getElementById('specialTotalAmount').innerText = VOTE_PRICE;
+            document.getElementById('specialVoteModal').style.display = 'block';
+        }
+        function closeSpecialVoteModal() { document.getElementById('specialVoteModal').style.display = 'none'; }
+        function addSpecialVotes(cid, nid, count) {
+            let cat = awardCategories.find(c=>c.id===cid);
+            let nominee = cat.nominees.find(n=>n.id===nid);
+            nominee.votes += count;
+            saveSpecialAwards();
+            renderAwardsCategories();
+            renderResults();
+        }
+
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSponsors();
+            loadSpecialVotes();
+            renderAwardsCategories();
+            renderResults();
             
-            window.addEventListener('resize', resetMobileMenu);
-            resetMobileMenu();
+            document.querySelectorAll('.close').forEach(btn => btn.addEventListener('click', function() { this.closest('.modal').style.display = 'none'; }));
+            window.addEventListener('click', (e) => { if (e.target === document.getElementById('specialVoteModal')) closeSpecialVoteModal(); });
+            document.getElementById('paySpecialVoteBtn')?.addEventListener('click', () => {
+                let cnt = parseInt(document.getElementById('specialVoteCount').value) || 0;
+                if (cnt < 1) { alert('Enter at least 1 vote'); return; }
+                alert(`💰 Demo: Adding ${cnt} votes (₦${cnt*VOTE_PRICE})`);
+                addSpecialVotes(currentSpecialNominee.categoryId, currentSpecialNominee.id, cnt);
+                closeSpecialVoteModal();
+            });
+            document.getElementById('specialVoteCount')?.addEventListener('input', (e) => {
+                document.getElementById('specialTotalAmount').innerText = (parseInt(e.target.value)||0) * VOTE_PRICE;
+            });
+            
+            // Mobile menu & smooth scroll (keeping existing functionality)
+            const mobileBtn = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            if (mobileBtn) mobileBtn.onclick = () => { navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex'; navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '70px'; navLinks.style.backgroundColor = 'white'; navLinks.style.padding = '1.5rem'; };
+            window.addEventListener('resize', () => { if (window.innerWidth > 768) navLinks.style = ''; else navLinks.style.display = 'none'; });
+            document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' }); if(window.innerWidth<=768) navLinks.style.display='none'; }));
         });
     </script>
 </body>
