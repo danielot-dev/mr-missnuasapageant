@@ -4,235 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR & MISS NUASA 2026 | Awards & Voting</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-crown"></i>
-                MR & MISS <span>NUASA</span>
-            </div>
-            <div class="nav-links">
-                <a href="#home" class="active">Home</a>
-                <a href="#contestants">Contestants</a>
-                <a href="#results">Results</a>
-                <a href="#awards">Prizes</a>
-                <a href="#special-awards">Special Awards</a>
-                <a href="#tickets">Tickets</a>
-                <a href="#sponsors">Sponsors</a>
-            </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>MR & MISS <span class="highlight">NUASA</span></h1>
-            <p>Vote for your favorite contestant or secure your ticket now!</p>
-            <div class="hero-buttons">
-                <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
-                <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote Contestants</a>
-                <a href="#sponsors" class="btn-primary"><i class="fas fa-trophy"></i> Sponsors </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contestants Section (Simplified - redirects to external vote page) -->
-    <section id="contestants" class="contestants">
-        <div class="container">
-            <h2>Meet Our <span class="highlight">Contestants</span></h2>
-            <p class="section-subtitle">Vote for your favorite MR & MISS NUASA contestant</p>
-            <div class="vote-redirect-container">
-                <div class="vote-redirect-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Cast Your Vote</h3>
-                    <p>Voting is ₦100 per vote. Click below to purchase votes and support your favorite contestant!</p>
-                    <a https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-primary" target="_blank">
-                        <i class="fas fa-vote-yea"></i> Vote Now → 
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Special Awards Voting Modal -->
-    <div id="specialVoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Vote for <span id="specialContestantName"></span></h3>
-            <p class="vote-category" id="specialCategoryName"></p>
-            <p class="vote-price">₦100 per vote</p>
-            <div class="vote-input-group">
-                <label for="specialVoteCount">Number of votes:</label>
-                <input type="number" id="specialVoteCount" min="1" max="1000" value="1">
-                <p class="total-amount">Total: ₦<span id="specialTotalAmount">100</span></p>
-            </div>
-            <button id="paySpecialVoteBtn" class="btn-primary">Continue to Payment →</button>
-        </div>
-    </div>
-
-    <!-- Awards & Prizes Section -->
-    <section id="awards" class="awards">
-        <div class="container">
-            <h2>Awards & <span class="highlight">Prizes</span></h2>
-            <p class="section-subtitle">Grand prizes for our winners</p>
-            
-            <div class="awards-grid">
-                <div class="award-card gold">
-                    <div class="award-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="award-title">MR & MISS NUASA 2026</div>
-                    <div class="award-prize">$100 Cash Prize</div>
-                    <ul class="award-list">
-                        <li><i class="fas fa-trophy"></i> Custom Crown & Sash</li>
-                        <li><i class="fas fa-star"></i> Free access to all school events</li>
-                        <li><i class="fas fa-plane"></i> All-Expense Paid visit to Magic land</li>
-                        <li><i class="fas fa-gift"></i> Brand Endorsement Deal</li>
-                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
-                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
-                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
-                    </ul>
-                    <div class="award-badge">GRAND PRIZE</div>
-                </div>
-
-                <div class="award-card silver">
-                    <div class="award-icon">
-                        <i class="fas fa-dove"></i>
-                    </div>
-                    <div class="award-title">Mr & Miss Peace</div>
-                    <ul class="award-list">
-                        <li><i class="fas fa-medal"></i> Silver Crown & Sash</li>
-                        <li><i class="fas fa-star"></i> Free access to all school events</li>
-                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
-                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
-                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Special Awards Prize Cards -->
-            <div class="special-prizes">
-                <h3>Special Awards <span class="highlight">Prizes</span></h3>
-                <div class="special-prizes-grid">
-                    <div class="prize-card">
-                        <i class="fas fa-medal"></i>
-                        <h4>Category Winners</h4>
-                        <p>Custom Certificate & Recognition</p>
-                    </div>
-                    <div class="prize-card">
-                        <i class="fas fa-gift"></i>
-                        <h4>Gift Packs</h4>
-                        <p>Branded merchandise & surprise gifts</p>
-                    </div>
-                    <div class="prize-card">
-                        <i class="fas fa-camera"></i>
-                        <p>Free professional photoshoot</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tickets Section (External redirect only) -->
-    <section id="tickets" class="tickets">
-        <div class="container">
-            <h2>Event <span class="highlight">Tickets</span></h2>
-            <div class="tickets-redirect-container">
-                <div class="tickets-redirect-card">
-                    <i class="fas fa-ticket-alt"></i>
-                    <h3>Secure Your Spot!</h3>
-                    <p>Get your tickets to MR & MISS NUASA 2026 now!</p>
-                    <div class="ticket-prices">
-                        <span class="price-tag">Regular: ₦1,000</span>
-                        <span class="price-tag">VIP: ₦10,000</span>
-                        <span class="price-tag">Table (4 seats): ₦40,000</span>
-                        <span class="price-tag">Table (6 seats): ₦50,000</span>
-                    </div>
-                    <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-primary" target="_blank">
-                        <i class="fas fa-shopping-cart"></i> Buy Tickets Now → 
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsors Section (Redesigned to match page theme) -->
-    <section id="sponsors" class="sponsors">
-        <div class="container">
-            <h2>Our <span class="highlight">Sponsors</span> & <span class="highlight">Partners</span></h2>
-            <p class="section-subtitle">Proud partners supporting MR & MISS NUASA 2026</p>
-            
-            <!-- Sponsors Grid -->
-            <div class="sponsors-grid" id="sponsorsGrid">
-                <div class="empty-sponsors">
-                    <i class="fas fa-building"></i>
-                    <p>No sponsors yet</p>
-                    <span>Be the first to sponsor this event!</span>
-                </div>
-            </div>
-            
-            <!-- Sponsorship Inquiry -->
-            <div class="sponsor-inquiry">
-                <i class="fas fa-handshake"></i>
-                <h3>Become a Sponsor Today!</h3>
-                <p>Partner with us and showcase your brand to thousands of attendees</p>
-                <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring%20MR%20%26%20MISS%20NUASA" 
-                   class="whatsapp-link" target="_blank">
-                    <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add Sponsor Modal -->
-    <div id="addSponsorModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3><i class="fas fa-handshake"></i> Add New Sponsor</h3>
-            <form id="sponsorForm">
-                <div class="form-group">
-                    <label>Sponsor Name *</label>
-                    <input type="text" id="sponsorName" required placeholder="e.g., Company Name">
-                </div>
-                <div class="form-group">
-                    <label>Sponsorship Level *</label>
-                    <select id="sponsorLevel" required>
-                        <option value="Platinum">🏆 Platinum</option>
-                        <option value="Gold">⭐ Gold</option>
-                        <option value="Silver">🥈 Silver</option>
-                        <option value="Bronze">🥉 Bronze</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Website URL *</label>
-                    <input type="url" id="sponsorWebsite" required placeholder="https://example.com">
-                </div>
-                <div class="form-group">
-                    <label>Logo URL (optional)</label>
-                    <input type="url" id="sponsorLogoUrl" placeholder="https://example.com/logo.png">
-                </div>
-                <button type="button" class="btn-primary" onclick="addSponsorFromForm()">Add Sponsor →</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2026 MR & MISS NUASA. All rights reserved.</p>
-            <p>Web Dev by © Daniel OT.</p>
-        </div>
-    </footer>
-
     <style>
         * {
             margin: 0;
@@ -408,7 +181,7 @@
             color: #1a1a2e;
         }
 
-        .contestants, .results, .tickets {
+        .contestants, .results, .tickets, .awards, .sponsors {
             padding: 5rem 2rem;
         }
 
@@ -430,56 +203,292 @@
             margin-bottom: 3rem;
         }
 
-        /* Vote Redirect Container */
-        .vote-redirect-container, .tickets-redirect-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
+        /* Admin Panel */
+        .admin-panel {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .vote-redirect-card, .tickets-redirect-card {
-            background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
-            border-radius: 30px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 500px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        .admin-panel h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
-        .vote-redirect-card i, .tickets-redirect-card i {
-            font-size: 4rem;
+        .admin-panel h3 i {
             color: #D4AF37;
+            margin-right: 0.5rem;
+        }
+
+        .admin-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .admin-form .form-group {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 0;
+        }
+
+        .admin-form label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            color: #666;
+        }
+
+        .admin-form input, .admin-form select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .admin-form button {
+            padding: 0.6rem 1.5rem;
+            white-space: nowrap;
+        }
+
+        .admin-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .admin-item {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .admin-item button {
+            background: none;
+            border: none;
+            color: #ff4444;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .admin-item button:hover {
+            color: #cc0000;
+        }
+
+        .admin-toggle {
+            text-align: center;
             margin-bottom: 1rem;
         }
 
-        .vote-redirect-card h3, .tickets-redirect-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+        .admin-toggle-btn {
+            background: #1a1a2e;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .admin-toggle-btn:hover {
+            background: #D4AF37;
             color: #1a1a2e;
         }
 
-        .vote-redirect-card p, .tickets-redirect-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
+        .admin-content {
+            display: none;
         }
 
-        .ticket-prices {
+        .admin-content.show {
+            display: block;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
         }
 
-        .price-tag {
-            background: #f8fafc;
-            padding: 0.5rem 1rem;
+        .carousel-wrapper {
+            overflow: hidden;
+            width: calc(100% - 100px);
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem;
+        }
+
+        .contestant-carousel-card {
+            flex: 0 0 calc(25% - 1.125rem);
+            min-width: 250px;
+            background: white;
             border-radius: 20px;
-            font-weight: 600;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .contestant-carousel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .contestant-carousel-card .contestant-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .contestant-carousel-card .contestant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contestant-carousel-card .contestant-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .contestant-carousel-card .contestant-number {
             color: #D4AF37;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .contestant-carousel-card h3 {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .contestant-carousel-card .vote-count {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+
+        .sponsor-carousel-card {
+            flex: 0 0 calc(20% - 1.2rem);
+            min-width: 180px;
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .sponsor-carousel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+        }
+
+        .sponsor-carousel-card .sponsor-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #fff9f0, #ffffff);
+            border-radius: 50%;
+        }
+
+        .sponsor-carousel-card .sponsor-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .sponsor-carousel-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: #1a1a2e;
+        }
+
+        .sponsor-carousel-card p {
+            font-size: 0.7rem;
+            color: #D4AF37;
+            font-weight: 600;
+        }
+
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #D4AF37;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #1a1a2e;
+            font-size: 1.2rem;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-prev:hover, .carousel-next:hover {
+            background: #B8960F;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-prev {
+            left: 0;
+        }
+
+        .carousel-next {
+            right: 0;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #D4AF37;
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        .carousel-redirect {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* Results */
@@ -547,91 +556,59 @@
             margin-bottom: 0.5rem;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
+        /* Tickets */
+        .tickets-redirect-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
         }
 
-        .modal-content {
-            background: white;
-            margin: 5% auto;
-            padding: 2rem;
-            width: 90%;
-            max-width: 450px;
-            border-radius: 20px;
-            position: relative;
-            border: 2px solid #D4AF37;
+        .tickets-redirect-card {
+            background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
+            border-radius: 30px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 500px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .close {
-            position: absolute;
-            right: 1.5rem;
-            top: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #999;
-        }
-
-        .close:hover {
+        .tickets-redirect-card i {
+            font-size: 4rem;
             color: #D4AF37;
-        }
-
-        .form-group {
             margin-bottom: 1rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .tickets-redirect-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
         }
 
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
+        .tickets-redirect-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
         }
 
-        .vote-price {
+        .ticket-prices {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-tag {
+            background: #f8fafc;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
             color: #D4AF37;
-            font-weight: 700;
-            margin: 0.5rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .vote-input-group {
-            margin: 1.5rem 0;
-        }
-
-        .vote-input-group input {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
-
-        .total-amount {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #D4AF37;
-        }
-
-        /* Awards Section */
-        .awards {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f8fafc 0%, #fff9f0 100%);
-        }
-
+        /* Awards */
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -726,181 +703,6 @@
             width: 120px;
         }
 
-        /* Special Awards Section */
-        .special-awards-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #ffffff 0%, #fff9f0 100%);
-        }
-
-        .awards-categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-        }
-
-        .category-header {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8960F 100%);
-            padding: 1.2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .category-header h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        .category-icon {
-            position: absolute;
-            top: -15px;
-            left: 15px;
-            background: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #D4AF37;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .category-content {
-            padding: 1.5rem;
-        }
-
-        .nominees-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .nominee-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem;
-            background: #f8fafc;
-            border-radius: 12px;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .nominee-item:hover {
-            border-color: #D4AF37;
-            background: white;
-        }
-
-        .nominee-info {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            flex: 1;
-        }
-
-        .nominee-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .nominee-details {
-            flex: 1;
-        }
-
-        .nominee-name {
-            font-weight: 600;
-            color: #1a1a2e;
-            margin-bottom: 0.2rem;
-        }
-
-        .nominee-votes {
-            font-size: 0.8rem;
-            color: #D4AF37;
-            font-weight: 500;
-        }
-
-        .nominee-vote-count {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            min-width: 60px;
-            text-align: right;
-        }
-
-        .vote-special-btn {
-            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
-            color: #1a1a2e;
-            border: none;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .vote-special-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-        }
-
-        .add-nominee-btn {
-            width: 100%;
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background: transparent;
-            border: 2px dashed #D4AF37;
-            border-radius: 12px;
-            color: #D4AF37;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .add-nominee-btn:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-style: solid;
-        }
-
-        .vote-category {
-            color: #D4AF37;
-            font-weight: 600;
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        /* Special Prizes */
         .special-prizes {
             margin-top: 4rem;
             text-align: center;
@@ -949,94 +751,7 @@
             color: #666;
         }
 
-        /* Sponsors Section - Redesigned */
-        .sponsors {
-            padding: 5rem 2rem;
-            background: #f8fafc;
-        }
-
-        .sponsors-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .sponsor-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            min-width: 180px;
-            transition: all 0.3s;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .sponsor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
-            border-color: #D4AF37;
-        }
-
-        .sponsor-logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            background: linear-gradient(135deg, #fff9f0, #ffffff);
-            border-radius: 50%;
-        }
-
-        .sponsor-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .sponsor-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a2e;
-        }
-
-        .sponsor-card p {
-            font-size: 0.8rem;
-            color: #D4AF37;
-            font-weight: 600;
-        }
-
-        .empty-sponsors {
-            text-align: center;
-            padding: 3rem;
-            background: white;
-            border-radius: 20px;
-            border: 2px dashed rgba(212, 175, 55, 0.3);
-        }
-
-        .empty-sponsors i {
-            font-size: 3rem;
-            color: #D4AF37;
-            opacity: 0.5;
-            margin-bottom: 1rem;
-        }
-
-        .empty-sponsors p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .empty-sponsors span {
-            font-size: 0.9rem;
-            color: #999;
-        }
-
+        /* Sponsors Inquiry */
         .sponsor-inquiry {
             text-align: center;
             margin-top: 3rem;
@@ -1087,13 +802,21 @@
             color: white;
         }
 
-        /* Footer */
         footer {
             background: #1a1a2e;
             color: #e8e0d0;
             text-align: center;
             padding: 2rem;
             border-top: 3px solid #D4AF37;
+        }
+
+        @media (max-width: 992px) {
+            .contestant-carousel-card {
+                flex: 0 0 calc(33.33% - 1rem);
+            }
+            .sponsor-carousel-card {
+                flex: 0 0 calc(25% - 1.125rem);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1106,6 +829,20 @@
             h2 {
                 font-size: 1.8rem;
             }
+            .contestant-carousel-card {
+                flex: 0 0 calc(50% - 0.75rem);
+            }
+            .sponsor-carousel-card {
+                flex: 0 0 calc(33.33% - 1rem);
+            }
+            .carousel-wrapper {
+                width: calc(100% - 70px);
+            }
+            .carousel-prev, .carousel-next {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
             .result-item {
                 flex-wrap: wrap;
             }
@@ -1117,444 +854,510 @@
             .result-name {
                 min-width: unset;
             }
-            .vote-redirect-card, .tickets-redirect-card {
+            .tickets-redirect-card {
                 padding: 1.5rem;
             }
-            .awards-categories-grid {
-                grid-template-columns: 1fr;
+            .admin-form {
+                flex-direction: column;
             }
-            .nominee-item {
-                flex-wrap: wrap;
+            .admin-form button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contestant-carousel-card {
+                flex: 0 0 100%;
+            }
+            .sponsor-carousel-card {
+                flex: 0 0 calc(50% - 0.75rem);
             }
         }
     </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                MR & MISS <span>NUASA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#contestants">Contestants</a>
+                <a href="#results">Results</a>
+                <a href="#awards">Prizes</a>
+                <a href="#tickets">Tickets</a>
+                <a href="#sponsors">Sponsors</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>MR & MISS <span class="highlight">NUASA</span></h1>
+            <p>Vote for your favorite contestant or secure your ticket now!</p>
+            <div class="hero-buttons">
+                <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank"><i class="fas fa-ticket-alt"></i> Buy Tickets</a>
+                <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-secondary" target="_blank"><i class="fas fa-heart"></i> Vote Contestants</a>
+                <a href="#sponsors" class="btn-primary"><i class="fas fa-trophy"></i> Sponsors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contestants Section -->
+    <section id="contestants" class="contestants">
+        <div class="container">
+            <h2>Meet Our <span class="highlight">Contestants</span></h2>
+            <p class="section-subtitle">Vote for your favorite MR & MISS NUASA contestant — ₦100 per vote</p>
+            
+            <!-- Admin Panel for Contestants -->
+            <div class="admin-panel">
+                <div class="admin-toggle">
+                    <button class="admin-toggle-btn" onclick="toggleAdmin('contestantsAdmin')">
+                        <i class="fas fa-lock"></i> Admin Panel (Manage Contestants)
+                    </button>
+                </div>
+                <div id="contestantsAdmin" class="admin-content">
+                    <h3><i class="fas fa-user-plus"></i> Add New Contestant</h3>
+                    <div class="admin-form">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="contestantName" placeholder="e.g., John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Number (MR001/MS001)</label>
+                            <input type="text" id="contestantNumber" placeholder="e.g., MR001">
+                        </div>
+                        <div class="form-group">
+                            <label>Image Filename</label>
+                            <input type="text" id="contestantImage" placeholder="images/contestant1.jpg">
+                        </div>
+                        <button class="btn-primary" onclick="addContestantFromForm()">Add Contestant →</button>
+                    </div>
+                    <h3 style="margin-top: 1rem;"><i class="fas fa-list"></i> Current Contestants</h3>
+                    <div id="contestantsList" class="admin-list"></div>
+                </div>
+            </div>
+            
+            <div class="carousel-container">
+                <button class="carousel-prev" id="contestantsPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="contestantsCarouselTrack"></div>
+                </div>
+                <button class="carousel-next" id="contestantsNextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="carousel-indicators" id="contestantsIndicators"></div>
+            
+            <div class="carousel-redirect">
+                <a href="https://ticketnests.live/event/mr-miss-nuasa/vote" class="btn-primary" target="_blank">
+                    <i class="fas fa-vote-yea"></i> Vote Now on TicketNests → 
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Results -->
+    <section id="results" class="results">
+        <div class="container">
+            <h2>Live <span class="highlight">Results</span></h2>
+            <div class="results-container" id="resultsContainer"></div>
+        </div>
+    </section>
+
+    <!-- Awards & Prizes Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2>Awards & <span class="highlight">Prizes</span></h2>
+            <p class="section-subtitle">Grand prizes for our winners</p>
+            
+            <div class="awards-grid">
+                <div class="award-card gold">
+                    <div class="award-icon"><i class="fas fa-crown"></i></div>
+                    <div class="award-title">MR & MISS NUASA 2026</div>
+                    <div class="award-prize">$100 Cash Prize</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-trophy"></i> Custom Crown & Sash</li>
+                        <li><i class="fas fa-star"></i> Free access to all school events</li>
+                        <li><i class="fas fa-plane"></i> All-Expense Paid visit to Magic land</li>
+                        <li><i class="fas fa-gift"></i> Brand Endorsement Deal</li>
+                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
+                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
+                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
+                    </ul>
+                    <div class="award-badge">GRAND PRIZE</div>
+                </div>
+
+                <div class="award-card silver">
+                    <div class="award-icon"><i class="fas fa-dove"></i></div>
+                    <div class="award-title">Mr & Miss Peace</div>
+                    <ul class="award-list">
+                        <li><i class="fas fa-medal"></i> Silver Crown & Sash</li>
+                        <li><i class="fas fa-star"></i> Free access to all school events</li>
+                        <li><i class="fas fa-camera"></i> Free professional photoshoot Courtesy: <a href="https://www.instagram.com/dubbies_photography">Dubbies Photography</a></li>
+                        <li><i class="fas fa-cut"></i> One-month free haircuts Courtesy: Celebrity Barber</li>
+                        <li><i class="fas fa-hand-sparkles"></i> One-month free Nails Courtesy: Damsel Alteria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="special-prizes">
+                <h3>Award <span class="highlight">Prizes</span></h3>
+                <div class="special-prizes-grid">
+                    <div class="prize-card"><i class="fas fa-medal"></i><h4>Category Winners</h4><p>Custom Certificate & Recognition</p></div>
+                    <div class="prize-card"><i class="fas fa-gift"></i><h4>Gift Packs</h4><p>Branded merchandise & surprise gifts</p></div>
+                    <div class="prize-card"><i class="fas fa-camera"></i><p>Free professional photoshoot</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="tickets">
+        <div class="container">
+            <h2>Event <span class="highlight">Tickets</span></h2>
+            <div class="tickets-redirect-container">
+                <div class="tickets-redirect-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Secure Your Spot!</h3>
+                    <p>Get your tickets to MR & MISS NUASA 2026 now!</p>
+                    <div class="ticket-prices">
+                        <span class="price-tag">Regular: ₦1,000</span>
+                        <span class="price-tag">VIP: ₦10,000</span>
+                        <span class="price-tag">Table (4 seats): ₦40,000</span>
+                        <span class="price-tag">Table (6 seats): ₦50,000</span>
+                    </div>
+                    <a href="https://ticketnests.live/event/mr-miss-nuasa/checkout" class="btn-primary" target="_blank">
+                        <i class="fas fa-shopping-cart"></i> Buy Tickets Now → 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="sponsors">
+        <div class="container">
+            <h2>Our <span class="highlight">Sponsors</span> & <span class="highlight">Partners</span></h2>
+            <p class="section-subtitle">Proud partners supporting MR & MISS NUASA 2026</p>
+            
+            <!-- Admin Panel for Sponsors -->
+            <div class="admin-panel">
+                <div class="admin-toggle">
+                    <button class="admin-toggle-btn" onclick="toggleAdmin('sponsorsAdmin')">
+                        <i class="fas fa-lock"></i> Admin Panel (Manage Sponsors)
+                    </button>
+                </div>
+                <div id="sponsorsAdmin" class="admin-content">
+                    <h3><i class="fas fa-handshake"></i> Add New Sponsor</h3>
+                    <div class="admin-form">
+                        <div class="form-group">
+                            <label>Sponsor Name</label>
+                            <input type="text" id="sponsorName" placeholder="e.g., Company Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Level</label>
+                            <select id="sponsorLevel">
+                                <option value="Platinum">🏆 Platinum</option>
+                                <option value="Gold">⭐ Gold</option>
+                                <option value="Silver">🥈 Silver</option>
+                                <option value="Bronze">🥉 Bronze</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Website URL</label>
+                            <input type="url" id="sponsorWebsite" placeholder="https://example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Logo Filename</label>
+                            <input type="text" id="sponsorLogoUrl" placeholder="images/logo.png">
+                        </div>
+                        <button class="btn-primary" onclick="addSponsorFromForm()">Add Sponsor →</button>
+                    </div>
+                    <h3 style="margin-top: 1rem;"><i class="fas fa-list"></i> Current Sponsors</h3>
+                    <div id="sponsorsList" class="admin-list"></div>
+                </div>
+            </div>
+            
+            <div class="carousel-container">
+                <button class="carousel-prev" id="sponsorsPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="sponsorsCarouselTrack"></div>
+                </div>
+                <button class="carousel-next" id="sponsorsNextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="carousel-indicators" id="sponsorsIndicators"></div>
+            
+            <div class="sponsor-inquiry">
+                <i class="fas fa-handshake"></i>
+                <h3>Become a Sponsor Today!</h3>
+                <p>Partner with us and showcase your brand to thousands of attendees</p>
+                <a href="https://wa.me/2347043398077?text=Hello%21%20I%27m%20interested%20in%20sponsoring%20MR%20%26%20MISS%20NUASA" class="whatsapp-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i> For Enquiries & Sponsorship: Click to Chat
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 MR & MISS NUASA. All rights reserved.</p>
+            <p>Web Dev by © Daniel OT.</p>
+        </div>
+    </footer>
 
     <script>
-        // ============ VOTE PRICE ============
-        const VOTE_PRICE = 100;
-
-        // ============ SPECIAL AWARDS DATA ============
-        let awardCategories = [
-            // ========== 100 LEVEL ==========
-            { id: 1, name: "100L - Most Influential Student", icon: "fa-star-of-life", nominees: [
-                { id: 101, name: "Rejoice", votes: 2 },
-                { id: 102, name: "Samuel", votes: 4 }
-            ] },
-            { id: 2, name: "100L - Most Popular Student", icon: "fa-fire", nominees: [
-                { id: 201, name: "Success (Mimi)", votes: 3 }
-            ] },
-            { id: 3, name: "100L - Best Dressed (Male)", icon: "fa-user-tie", nominees: [
-                { id: 301, name: "Musty", votes: 0 },
-                { id: 302, name: "Enoch Pius", votes: 0 }
-            ] },
-            { id: 4, name: "100L - Best Dressed (Female)", icon: "fa-female", nominees: [
-                { id: 401, name: "Fikayo", votes: 1 },
-                { id: 402, name: "Prudy", votes: 2 }
-            ] },
-            { id: 5, name: "100L - Money Bag of the Year", icon: "fa-sack-dollar", nominees: [] },
-            { id: 6, name: "100L - Hall of Fame", icon: "fa-trophy", nominees: [
-                { id: 601, name: "Sirleem", votes: 0 }
-            ] },
-            { id: 7, name: "100L - Brand of the Year", icon: "fa-building", nominees: [
-                { id: 701, name: "Savage Wears", votes: 0 }
-            ] },
-            { id: 8, name: "100L - Fastest Rising Brand", icon: "fa-chart-line", nominees: [
-                { id: 801, name: "Mimi's Essence", votes: 0 }
-            ] },
-            { id: 9, name: "100L - Squad of the Year", icon: "fa-users", nominees: [
-                { id: 901, name: "Kelvin", votes: 4 }
-            ] },
-            { id: 10, name: "100L - Friend Group of the Year", icon: "fa-user-friends", nominees: [
-                { id: 1001, name: "Arah", votes: 0 },
-                { id: 1002, name: "Mimi", votes: 0 },
-                { id: 1003, name: "Divine", votes: 0 },
-                { id: 1004, name: "Jasmine", votes: 0 },
-                { id: 1005, name: "Clemzzy", votes: 0 },
-                { id: 1006, name: "Nonso", votes: 0 },
-                { id: 1007, name: "Loner", votes: 0 },
-                { id: 1008, name: "Ola", votes: 0 },
-                { id: 1009, name: "Cecilia", votes: 0 }
-            ] },
-            { id: 11, name: "100L - Most Supportive Exco", icon: "fa-handshake", nominees: [
-                { id: 1101, name: "President Timmy", votes: 0 }
-            ] },
-            { id: 12, name: "100L - FYN", icon: "fa-gem", nominees: [] },
-            { id: 13, name: "100L - Fresher of the Year", icon: "fa-seedling", nominees: [
-                { id: 1301, name: "Vivian Adepoju", votes: 1 }
-            ] },
-            
-            // ========== 200 LEVEL ==========
-            { id: 14, name: "200L - Most Influential Student", icon: "fa-star-of-life", nominees: [
-                { id: 1401, name: "Bigemmy", votes: 0 },
-                { id: 1402, name: "Iconic Fx", votes: 0 }
-            ] },
-            { id: 15, name: "200L - Most Popular Student", icon: "fa-fire", nominees: [
-                { id: 1501, name: "BigEmmy", votes: 0 },
-                { id: 1502, name: "Abdulsamad Young Mayor", votes: 0 },
-                { id: 1503, name: "Eniola CR", votes: 0 }
-            ] },
-            { id: 16, name: "200L - Best Dressed (Male)", icon: "fa-user-tie", nominees: [
-                { id: 1601, name: "Bigemmy", votes: 0 },
-                { id: 1602, name: "Naviz", votes: 0 },
-                { id: 1603, name: "Abraham (200L)", votes: 0 }
-            ] },
-            { id: 17, name: "200L - Best Dressed (Female)", icon: "fa-female", nominees: [
-                { id: 1701, name: "Divine Favour", votes: 0 },
-                { id: 1702, name: "Benedicta (200L)", votes: 0 },
-                { id: 1703, name: "Eniola CR", votes: 0 }
-            ] },
-            { id: 18, name: "200L - Money Bag of the Year", icon: "fa-sack-dollar", nominees: [
-                { id: 1801, name: "Young Mayor", votes: 0 }
-            ] },
-            { id: 19, name: "200L - Hall of Fame", icon: "fa-trophy", nominees: [
-                { id: 1901, name: "Abraham", votes: 0 },
-                { id: 1902, name: "BigEmmy", votes: 0 }
-            ] },
-            { id: 20, name: "200L - Brand of the Year", icon: "fa-building", nominees: [
-                { id: 2001, name: "Glorious Luxury Store", votes: 0 }
-            ] },
-            { id: 21, name: "200L - Fastest Rising Brand", icon: "fa-chart-line", nominees: [
-                { id: 2101, name: "Glorious Luxury Store", votes: 0 }
-            ] },
-            { id: 22, name: "200L - Squad of the Year", icon: "fa-users", nominees: [] },
-            { id: 23, name: "200L - Friend Group of the Year", icon: "fa-user-friends", nominees: [
-                { id: 2301, name: "Young Mayor's Squad", votes: 0 }
-            ] },
-            { id: 24, name: "200L - Most Supportive Exco", icon: "fa-handshake", nominees: [
-                { id: 2401, name: "Glorious", votes: 0 }
-            ] },
-            { id: 25, name: "200L - FYN", icon: "fa-gem", nominees: [
-                { id: 2501, name: "Naviz", votes: 0 },
-                { id: 2502, name: "Glorious", votes: 0 },
-                { id: 2503, name: "Big Emmy", votes: 0 },
-                { id: 2504, name: "Abdulsamad", votes: 0 }
-            ] },
-            
-            // ========== 400 LEVEL ==========
-            { id: 26, name: "400L - Most Influential Student", icon: "fa-star-of-life", nominees: [] },
-            { id: 27, name: "400L - Most Popular Student", icon: "fa-fire", nominees: [] },
-            { id: 28, name: "400L - Best Dressed (Male)", icon: "fa-user-tie", nominees: [
-                { id: 2801, name: "Khing", votes: 0 },
-                { id: 2802, name: "Dml", votes: 0 },
-                { id: 2803, name: "Oloba Mateenez", votes: 0 }
-            ] },
-            { id: 29, name: "400L - Best Dressed (Female)", icon: "fa-female", nominees: [
-                { id: 2901, name: "Bethel", votes: 0 }
-            ] },
-            { id: 30, name: "400L - Money Bag of the Year", icon: "fa-sack-dollar", nominees: [
-                { id: 3001, name: "S.O.A", votes: 0 }
-            ] },
-            { id: 31, name: "400L - Brand of the Year", icon: "fa-building", nominees: [
-                { id: 3101, name: "RCT", votes: 0 }
-            ] },
-            { id: 32, name: "400L - Fastest Rising Brand", icon: "fa-chart-line", nominees: [
-                { id: 3201, name: "Embkay Cutz", votes: 0 }
-            ] },
-            { id: 33, name: "400L - Squad of the Year", icon: "fa-users", nominees: [
-                { id: 3301, name: "Btc Squad", votes: 0 }
-            ] },
-            { id: 34, name: "400L - Friend Group of the Year", icon: "fa-user-friends", nominees: [] },
-            { id: 35, name: "400L - Most Supportive Exco", icon: "fa-handshake", nominees: [
-                { id: 3501, name: "Fatai", votes: 0 },
-                { id: 3502, name: "Roland", votes: 0 }
-            ] }
-        ];
-
-        // ============ SPONSORS DATA ============
+        // ============ CONTESTANTS DATA ============
+        let contestants = [];
         let sponsors = [];
+
+        // ============ CAROUSEL STATE ============
+        let contestantsCurrentIndex = 0;
+        let sponsorsCurrentIndex = 0;
+        let contestantsItemsPerView = 4;
+        let sponsorsItemsPerView = 5;
 
         // ============ LOAD DATA ============
         function loadData() {
-            const savedAwards = localStorage.getItem('nuasaSpecialAwards');
-            if (savedAwards) {
-                const savedData = JSON.parse(savedAwards);
-                awardCategories.forEach((cat, idx) => {
-                    if (savedData[idx] && savedData[idx].nominees) {
-                        cat.nominees = savedData[idx].nominees;
-                    }
-                });
+            const savedContestants = localStorage.getItem('nuasaContestants');
+            if (savedContestants) {
+                contestants = JSON.parse(savedContestants);
+            } else {
+                // Sample data
+                contestants = [
+                    { id: 1, name: "John Doe", number: "MR001", votes: 45, image: "images/contestant1.jpg" },
+                    { id: 2, name: "Jane Smith", number: "MS001", votes: 38, image: "images/contestant2.jpg" },
+                    { id: 3, name: "Michael Lee", number: "MR002", votes: 52, image: "images/contestant3.jpg" },
+                    { id: 4, name: "Sarah Johnson", number: "MS002", votes: 29, image: "images/contestant4.jpg" }
+                ];
             }
             
-            loadSpecialVotes();
-            loadSponsors();
-            renderAwardsCategories();
-            renderResults();
-        }
-
-        function saveSpecialAwards() {
-            const toSave = awardCategories.map(cat => ({
-                id: cat.id,
-                name: cat.name,
-                nominees: cat.nominees
-            }));
-            localStorage.setItem('nuasaSpecialAwards', JSON.stringify(toSave));
-        }
-
-        function saveSpecialVotes() {
-            const votesToSave = {};
-            awardCategories.forEach(category => {
-                category.nominees.forEach(nominee => {
-                    votesToSave[`${category.id}_${nominee.id}`] = nominee.votes;
-                });
-            });
-            localStorage.setItem('nuasaSpecialVotes', JSON.stringify(votesToSave));
-        }
-
-        function loadSpecialVotes() {
-            const saved = localStorage.getItem('nuasaSpecialVotes');
-            if (saved) {
-                const savedVotes = JSON.parse(saved);
-                awardCategories.forEach(category => {
-                    category.nominees.forEach(nominee => {
-                        const key = `${category.id}_${nominee.id}`;
-                        if (savedVotes[key] !== undefined) {
-                            nominee.votes = savedVotes[key];
-                        }
-                    });
-                });
-            }
-        }
-
-        function addSpecialVotes(categoryId, nomineeId, voteCount) {
-            const category = awardCategories.find(c => c.id === categoryId);
-            if (category) {
-                const nominee = category.nominees.find(n => n.id === nomineeId);
-                if (nominee) {
-                    nominee.votes += voteCount;
-                    saveSpecialAwards();
-                    saveSpecialVotes();
-                    renderAwardsCategories();
-                    renderResults();
-                }
-            }
-        }
-
-        // Render Results (for display)
-        function renderResults() {
-            const resultsContainer = document.getElementById('resultsContainer');
-            if (!resultsContainer) return;
-            
-            // Collect all nominees with votes for display
-            let allNominees = [];
-            awardCategories.forEach(category => {
-                category.nominees.forEach(nominee => {
-                    if (nominee.votes > 0) {
-                        allNominees.push({
-                            name: `${nominee.name} (${category.name})`,
-                            votes: nominee.votes
-                        });
-                    }
-                });
-            });
-            
-            if (allNominees.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-chart-line"></i>
-                        <p>Results will be displayed here after voting begins</p>
-                        <span>Check back soon!</span>
-                    </div>
-                `;
-                return;
-            }
-            
-            const sorted = allNominees.sort((a, b) => b.votes - a.votes);
-            const totalVotes = allNominees.reduce((sum, n) => sum + n.votes, 0);
-            
-            resultsContainer.innerHTML = sorted.map((n, index) => {
-                const percentage = totalVotes > 0 ? (n.votes / totalVotes) * 100 : 0;
-                const medal = index === 0 ? '👑 ' : index === 1 ? '🥈 ' : index === 2 ? '🥉 ' : '';
-                return `
-                    <div class="result-item">
-                        <span class="result-name">${medal}${n.name}</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${percentage}%"></div>
-                        </div>
-                        <span class="result-votes">${n.votes} votes</span>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function renderAwardsCategories() {
-            const grid = document.getElementById('awardsCategoriesGrid');
-            if (!grid) return;
-            
-            grid.innerHTML = awardCategories.map(category => {
-                const sortedNominees = [...category.nominees].sort((a, b) => b.votes - a.votes);
-                const totalVotes = category.nominees.reduce((sum, n) => sum + n.votes, 0);
-                
-                const nomineesHtml = category.nominees.length === 0 ? 
-                    `<div class="empty-state" style="padding: 1rem;">
-                        <p style="font-size: 0.9rem;">No nominees yet</p>
-                        <span>Add nominees via console: addSpecialNominee(${category.id}, "Name")</span>
-                    </div>` :
-                    sortedNominees.map(nominee => {
-                        const percentage = totalVotes > 0 ? (nominee.votes / totalVotes) * 100 : 0;
-                        return `
-                            <div class="nominee-item">
-                                <div class="nominee-info">
-                                    <div class="nominee-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="nominee-details">
-                                        <div class="nominee-name">${nominee.name}</div>
-                                        <div class="nominee-votes">${nominee.votes} votes</div>
-                                        <div class="progress-bar" style="width: 100%; margin-top: 4px;">
-                                            <div class="progress-fill" style="width: ${percentage}%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="nominee-vote-count">⭐ ${nominee.votes}</div>
-                                </div>
-                                <button class="vote-special-btn" data-category-id="${category.id}" data-nominee-id="${nominee.id}" data-nominee-name="${nominee.name}" data-category-name="${category.name}">
-                                    <i class="fas fa-heart"></i> Vote
-                                </button>
-                            </div>
-                        `;
-                    }).join('');
-                
-                return `
-                    <div class="category-card" data-category-id="${category.id}">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas ${category.icon}"></i>
-                            </div>
-                            <h3>${category.name}</h3>
-                        </div>
-                        <div class="category-content">
-                            <div class="nominees-list">
-                                ${nomineesHtml}
-                            </div>
-                            <button class="add-nominee-btn" data-category-id="${category.id}" data-category-name="${category.name}">
-                                <i class="fas fa-plus"></i> Add Nominee
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            document.querySelectorAll('.vote-special-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const categoryId = parseInt(btn.dataset.categoryId);
-                    const nomineeId = parseInt(btn.dataset.nomineeId);
-                    const nomineeName = btn.dataset.nomineeName;
-                    const categoryName = btn.dataset.categoryName;
-                    openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName);
-                });
-            });
-            
-            document.querySelectorAll('.add-nominee-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const categoryId = parseInt(btn.dataset.categoryId);
-                    const categoryName = btn.dataset.categoryName;
-                    addNomineePrompt(categoryId, categoryName);
-                });
-            });
-        }
-
-        function addNomineePrompt(categoryId, categoryName) {
-            const nomineeName = prompt(`Enter nominee name for "${categoryName}":`);
-            if (nomineeName && nomineeName.trim()) {
-                const category = awardCategories.find(c => c.id === categoryId);
-                if (category) {
-                    const newNominee = {
-                        id: Date.now(),
-                        name: nomineeName.trim(),
-                        votes: 0
-                    };
-                    category.nominees.push(newNominee);
-                    saveSpecialAwards();
-                    renderAwardsCategories();
-                    renderResults();
-                    alert(`✅ Added "${nomineeName}" to ${categoryName}`);
-                }
-            }
-        }
-
-        // ============ MODAL FUNCTIONS ============
-        let currentSpecialNominee = null;
-        let currentSpecialCategory = null;
-
-        function openSpecialVoteModal(categoryId, nomineeId, nomineeName, categoryName) {
-            currentSpecialNominee = { id: nomineeId, categoryId: categoryId };
-            currentSpecialCategory = categoryName;
-            const modal = document.getElementById('specialVoteModal');
-            document.getElementById('specialContestantName').textContent = nomineeName;
-            document.getElementById('specialCategoryName').textContent = categoryName;
-            document.getElementById('specialVoteCount').value = 1;
-            document.getElementById('specialTotalAmount').textContent = VOTE_PRICE;
-            modal.style.display = 'block';
-        }
-
-        function closeSpecialVoteModal() {
-            const modal = document.getElementById('specialVoteModal');
-            modal.style.display = 'none';
-        }
-
-        // ============ SPONSORS FUNCTIONS ============
-        function loadSponsors() {
             const savedSponsors = localStorage.getItem('nuasaSponsors');
             if (savedSponsors) {
                 sponsors = JSON.parse(savedSponsors);
             } else {
                 sponsors = [];
             }
-            renderSponsorsGrid();
+            
+            renderContestantsCarousel();
+            renderSponsorsCarousel();
+            renderResults();
+            renderContestantsList();
+            renderSponsorsList();
+        }
+
+        function saveContestants() {
+            localStorage.setItem('nuasaContestants', JSON.stringify(contestants));
+            renderContestantsCarousel();
+            renderResults();
+            renderContestantsList();
         }
 
         function saveSponsors() {
             localStorage.setItem('nuasaSponsors', JSON.stringify(sponsors));
-            renderSponsorsGrid();
+            renderSponsorsCarousel();
+            renderSponsorsList();
         }
 
-        function renderSponsorsGrid() {
-            const sponsorsGrid = document.getElementById('sponsorsGrid');
-            if (!sponsorsGrid) return;
-            
-            if (sponsors.length === 0) {
-                sponsorsGrid.innerHTML = `
-                    <div class="empty-sponsors">
-                        <i class="fas fa-building"></i>
-                        <p>No sponsors yet</p>
-                        <span>Be the first to sponsor this event!</span>
-                    </div>
-                `;
+        // ============ RENDER CAROUSELS ============
+        function renderContestantsCarousel() {
+            const track = document.getElementById('contestantsCarouselTrack');
+            if (!track) return;
+
+            if (contestants.length === 0) {
+                track.innerHTML = `<div class="empty-state" style="width: 100%;"><i class="fas fa-users-slash"></i><p>No contestants yet</p><span>Use the Admin Panel above to add contestants</span></div>`;
+                updateIndicators('contestants', 0, contestantsItemsPerView);
                 return;
             }
-            
-            sponsorsGrid.innerHTML = sponsors.map(s => `
-                <div class="sponsor-card" onclick="window.open('${s.website}', '_blank')">
+
+            track.innerHTML = contestants.map(c => `
+                <div class="contestant-carousel-card">
+                    <div class="contestant-image">
+                        <img src="${c.image}" alt="${c.name}" onerror="this.src='https://placehold.co/400x500/1a1a2e/D4AF37?text=${encodeURIComponent(c.name)}'">
+                    </div>
+                    <div class="contestant-info">
+                        <div class="contestant-number">${c.number}</div>
+                        <h3>${c.name}</h3>
+                        <div class="vote-count">⭐ ${c.votes} votes</div>
+                    </div>
+                </div>
+            `).join('');
+
+            updateCarousel('contestants', contestantsCurrentIndex, contestantsItemsPerView, contestants.length);
+        }
+
+        function renderSponsorsCarousel() {
+            const track = document.getElementById('sponsorsCarouselTrack');
+            if (!track) return;
+
+            if (sponsors.length === 0) {
+                track.innerHTML = `<div class="empty-state" style="width: 100%;"><i class="fas fa-building"></i><p>No sponsors yet</p><span>Use the Admin Panel above to add sponsors</span></div>`;
+                updateIndicators('sponsors', 0, sponsorsItemsPerView);
+                return;
+            }
+
+            track.innerHTML = sponsors.map(s => `
+                <div class="sponsor-carousel-card" onclick="window.open('${s.website}', '_blank')">
                     <div class="sponsor-logo">
-                        ${s.logoUrl ? `<img src="${s.logoUrl}" alt="${s.name}">` : `<i class="fas ${getSponsorIcon(s.level)}"></i>`}
+                        ${s.logoUrl ? `<img src="${s.logoUrl}" alt="${s.name}" onerror="this.parentElement.innerHTML='<i class=\'fas ${getSponsorIcon(s.level)}\'></i>'">` : `<i class="fas ${getSponsorIcon(s.level)}"></i>`}
                     </div>
                     <h4>${s.name}</h4>
                     <p>${s.level}</p>
                 </div>
             `).join('');
+
+            updateCarousel('sponsors', sponsorsCurrentIndex, sponsorsItemsPerView, sponsors.length);
         }
 
-        function getSponsorIcon(level) {
-            switch(level.toLowerCase()) {
-                case 'platinum': return 'fa-crown';
-                case 'gold': return 'fa-star';
-                case 'silver': return 'fa-medal';
-                case 'bronze': return 'fa-award';
-                default: return 'fa-building';
+        function updateCarousel(type, currentIndex, itemsPerView, totalItems) {
+            const track = document.getElementById(`${type}CarouselTrack`);
+            if (!track) return;
+
+            const maxIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+            const clampedIndex = Math.min(currentIndex, maxIndex);
+            
+            const translateX = clampedIndex * 100;
+            track.style.transform = `translateX(-${translateX}%)`;
+            
+            updateIndicators(type, totalItems, itemsPerView);
+            
+            if (type === 'contestants') contestantsCurrentIndex = clampedIndex;
+            else sponsorsCurrentIndex = clampedIndex;
+        }
+
+        function updateIndicators(type, totalItems, itemsPerView) {
+            const container = document.getElementById(`${type}Indicators`);
+            if (!container) return;
+
+            const pageCount = Math.ceil(totalItems / itemsPerView);
+            const currentPage = type === 'contestants' ? contestantsCurrentIndex : sponsorsCurrentIndex;
+
+            container.innerHTML = '';
+            for (let i = 0; i < pageCount; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${i === currentPage ? 'active' : ''}`;
+                indicator.addEventListener('click', () => {
+                    if (type === 'contestants') {
+                        contestantsCurrentIndex = i;
+                        updateCarousel('contestants', contestantsCurrentIndex, contestantsItemsPerView, contestants.length);
+                    } else {
+                        sponsorsCurrentIndex = i;
+                        updateCarousel('sponsors', sponsorsCurrentIndex, sponsorsItemsPerView, sponsors.length);
+                    }
+                });
+                container.appendChild(indicator);
             }
         }
 
-        function openAddSponsorModal() {
-            const modal = document.getElementById('addSponsorModal');
-            if (modal) {
-                modal.style.display = 'block';
+        // ============ RENDER ADMIN LISTS ============
+        function renderContestantsList() {
+            const container = document.getElementById('contestantsList');
+            if (!container) return;
+            
+            if (contestants.length === 0) {
+                container.innerHTML = '<p style="color: #999;">No contestants added yet</p>';
+                return;
             }
+            
+            container.innerHTML = contestants.map(c => `
+                <div class="admin-item">
+                    ${c.name} (${c.number}) - ${c.votes} votes
+                    <button onclick="removeContestant(${c.id})"><i class="fas fa-trash"></i></button>
+                </div>
+            `).join('');
         }
 
-        function closeAddSponsorModal() {
-            const modal = document.getElementById('addSponsorModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.getElementById('sponsorForm').reset();
+        function renderSponsorsList() {
+            const container = document.getElementById('sponsorsList');
+            if (!container) return;
+            
+            if (sponsors.length === 0) {
+                container.innerHTML = '<p style="color: #999;">No sponsors added yet</p>';
+                return;
+            }
+            
+            container.innerHTML = sponsors.map(s => `
+                <div class="admin-item">
+                    ${s.name} (${s.level})
+                    <button onclick="removeSponsor(${s.id})"><i class="fas fa-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        // ============ RESULTS ============
+        function renderResults() {
+            const container = document.getElementById('resultsContainer');
+            if (!container) return;
+
+            let allNominees = [];
+            contestants.forEach(c => {
+                if (c.votes > 0) allNominees.push({ name: `${c.name} (${c.number})`, votes: c.votes });
+            });
+
+            if (allNominees.length === 0) {
+                container.innerHTML = `<div class="empty-state"><i class="fas fa-chart-line"></i><p>No votes yet</p><span>Be the first to vote!</span></div>`;
+                return;
+            }
+
+            const sorted = allNominees.sort((a, b) => b.votes - a.votes);
+            const totalVotes = allNominees.reduce((sum, n) => sum + n.votes, 0);
+
+            container.innerHTML = sorted.slice(0, 15).map((n, i) => {
+                const percentage = totalVotes > 0 ? (n.votes / totalVotes) * 100 : 0;
+                const medal = i === 0 ? '👑 ' : i === 1 ? '🥈 ' : i === 2 ? '🥉 ' : '';
+                return `<div class="result-item"><span class="result-name">${medal}${n.name}</span><div class="progress-bar"><div class="progress-fill" style="width: ${percentage}%"></div></div><span class="result-votes">${n.votes} votes</span></div>`;
+            }).join('');
+        }
+
+        // ============ ADMIN FUNCTIONS ============
+        function toggleAdmin(panelId) {
+            const panel = document.getElementById(panelId);
+            panel.classList.toggle('show');
+        }
+
+        function addContestantFromForm() {
+            const name = document.getElementById('contestantName').value;
+            const number = document.getElementById('contestantNumber').value;
+            const image = document.getElementById('contestantImage').value;
+            
+            if (!name || !number) {
+                alert('Please fill in Name and Number');
+                return;
+            }
+            
+            const newId = contestants.length > 0 ? Math.max(...contestants.map(c => c.id)) + 1 : 1;
+            contestants.push({
+                id: newId,
+                name: name,
+                number: number,
+                votes: 0,
+                image: image || 'https://placehold.co/400x500/1a1a2e/D4AF37?text=' + encodeURIComponent(name)
+            });
+            
+            saveContestants();
+            
+            document.getElementById('contestantName').value = '';
+            document.getElementById('contestantNumber').value = '';
+            document.getElementById('contestantImage').value = '';
+            
+            alert(`✅ Added ${name} (${number})`);
+        }
+
+        function removeContestant(id) {
+            const contestant = contestants.find(c => c.id === id);
+            if (confirm(`Remove ${contestant.name}?`)) {
+                contestants = contestants.filter(c => c.id !== id);
+                saveContestants();
+                updateCarousel('contestants', contestantsCurrentIndex, contestantsItemsPerView, contestants.length);
             }
         }
 
@@ -1564,197 +1367,102 @@
             const website = document.getElementById('sponsorWebsite').value;
             const logoUrl = document.getElementById('sponsorLogoUrl').value;
             
-            if (!name || !level || !website) {
-                alert('Please fill in all required fields');
+            if (!name || !website) {
+                alert('Please fill in Name and Website URL');
                 return;
             }
             
-            const newSponsor = {
-                id: Date.now(),
+            const newId = sponsors.length > 0 ? Math.max(...sponsors.map(s => s.id)) + 1 : 1;
+            sponsors.push({
+                id: newId,
                 name: name,
                 level: level,
                 website: website,
                 logoUrl: logoUrl || null
-            };
+            });
             
-            sponsors.push(newSponsor);
             saveSponsors();
-            closeAddSponsorModal();
+            
+            document.getElementById('sponsorName').value = '';
+            document.getElementById('sponsorWebsite').value = '';
+            document.getElementById('sponsorLogoUrl').value = '';
+            
             alert(`✅ Added ${name} as a ${level} sponsor!`);
         }
 
-        // ============ ADMIN CONSOLE FUNCTIONS ============
-        window.addSponsor = function(name, level, website, logoUrl = null) {
-            const newSponsor = {
-                id: Date.now(),
-                name: name,
-                level: level,
-                website: website,
-                logoUrl: logoUrl
-            };
-            sponsors.push(newSponsor);
-            saveSponsors();
-            console.log(`✅ Added sponsor: ${name} (${level})`);
-            return newSponsor;
-        };
-
-        window.removeSponsor = function(sponsorId) {
-            const sponsor = sponsors.find(s => s.id === sponsorId);
-            if (sponsor && confirm(`Remove ${sponsor.name} from sponsors?`)) {
-                sponsors = sponsors.filter(s => s.id !== sponsorId);
+        function removeSponsor(id) {
+            const sponsor = sponsors.find(s => s.id === id);
+            if (confirm(`Remove ${sponsor.name}?`)) {
+                sponsors = sponsors.filter(s => s.id !== id);
                 saveSponsors();
-                console.log(`✅ Removed sponsor: ${sponsor.name}`);
+                updateCarousel('sponsors', sponsorsCurrentIndex, sponsorsItemsPerView, sponsors.length);
             }
-        };
+        }
 
-        window.viewSponsors = function() {
-            console.table(sponsors);
-            return sponsors;
-        };
+        function getSponsorIcon(level) {
+            const icons = { platinum: 'fa-crown', gold: 'fa-star', silver: 'fa-medal', bronze: 'fa-award' };
+            return icons[level.toLowerCase()] || 'fa-building';
+        }
 
-        window.addSpecialNominee = function(categoryId, nomineeName) {
-            const category = awardCategories.find(c => c.id === categoryId);
-            if (category) {
-                const newNominee = {
-                    id: Date.now(),
-                    name: nomineeName,
-                    votes: 0
-                };
-                category.nominees.push(newNominee);
-                saveSpecialAwards();
-                renderAwardsCategories();
-                renderResults();
-                console.log(`✅ Added "${nomineeName}" to ${category.name}`);
-                return newNominee;
+        function updateItemsPerView() {
+            if (window.innerWidth <= 480) {
+                contestantsItemsPerView = 1;
+                sponsorsItemsPerView = 2;
+            } else if (window.innerWidth <= 768) {
+                contestantsItemsPerView = 2;
+                sponsorsItemsPerView = 3;
+            } else if (window.innerWidth <= 992) {
+                contestantsItemsPerView = 3;
+                sponsorsItemsPerView = 4;
             } else {
-                console.log(`❌ Category ID ${categoryId} not found`);
-                return null;
+                contestantsItemsPerView = 4;
+                sponsorsItemsPerView = 5;
             }
-        };
-
-        window.viewSpecialAwards = function() {
-            console.table(awardCategories.map(cat => ({
-                Category: cat.name,
-                Nominees: cat.nominees.length,
-                TotalVotes: cat.nominees.reduce((sum, n) => sum + n.votes, 0)
-            })));
-            return awardCategories;
-        };
-
-        window.clearAllData = function() {
-            if (confirm('⚠️ WARNING: This will delete ALL special awards data. Are you sure?')) {
-                awardCategories.forEach(cat => cat.nominees = []);
-                sponsors = [];
-                localStorage.removeItem('nuasaSpecialAwards');
-                localStorage.removeItem('nuasaSpecialVotes');
-                localStorage.removeItem('nuasaSponsors');
-                renderAwardsCategories();
-                renderSponsorsGrid();
-                renderResults();
-                console.log('✅ All data cleared!');
-            }
-        };
+            
+            renderContestantsCarousel();
+            renderSponsorsCarousel();
+        }
 
         // ============ EVENT LISTENERS ============
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             loadData();
-            
-            // Modal close buttons
-            document.querySelectorAll('.close').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if (modal) modal.style.display = 'none';
-                });
+            updateItemsPerView();
+            window.addEventListener('resize', updateItemsPerView);
+
+            document.getElementById('contestantsPrevBtn')?.addEventListener('click', () => {
+                const maxPage = Math.ceil(contestants.length / contestantsItemsPerView) - 1;
+                if (contestantsCurrentIndex > 0) contestantsCurrentIndex--;
+                updateCarousel('contestants', contestantsCurrentIndex, contestantsItemsPerView, contestants.length);
             });
-            
-            // Close modals when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === document.getElementById('specialVoteModal')) closeSpecialVoteModal();
-                if (e.target === document.getElementById('addSponsorModal')) closeAddSponsorModal();
+            document.getElementById('contestantsNextBtn')?.addEventListener('click', () => {
+                const maxPage = Math.ceil(contestants.length / contestantsItemsPerView) - 1;
+                if (contestantsCurrentIndex < maxPage) contestantsCurrentIndex++;
+                updateCarousel('contestants', contestantsCurrentIndex, contestantsItemsPerView, contestants.length);
             });
-            
-            // Special vote payment
-            const paySpecialVoteBtn = document.getElementById('paySpecialVoteBtn');
-            if (paySpecialVoteBtn) {
-                paySpecialVoteBtn.addEventListener('click', () => {
-                    const voteCount = parseInt(document.getElementById('specialVoteCount').value) || 0;
-                    if (voteCount < 1) {
-                        alert('Please enter at least 1 vote');
-                        return;
-                    }
-                    
-                    const totalAmount = voteCount * VOTE_PRICE;
-                    alert(`💰 Payment Demo\n\nCategory: ${currentSpecialCategory}\nVotes: ${voteCount}\nTotal: ₦${totalAmount}\n\nClick OK to add votes`);
-                    
-                    addSpecialVotes(currentSpecialNominee.categoryId, currentSpecialNominee.id, voteCount);
-                    closeSpecialVoteModal();
-                });
-            }
-            
-            // Special vote count input
-            const specialVoteCountInput = document.getElementById('specialVoteCount');
-            if (specialVoteCountInput) {
-                specialVoteCountInput.addEventListener('input', (e) => {
-                    const count = parseInt(e.target.value) || 0;
-                    document.getElementById('specialTotalAmount').textContent = count * VOTE_PRICE;
-                });
-            }
-            
-            // Navigation smooth scroll
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = document.querySelector(link.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                });
+            document.getElementById('sponsorsPrevBtn')?.addEventListener('click', () => {
+                const maxPage = Math.ceil(sponsors.length / sponsorsItemsPerView) - 1;
+                if (sponsorsCurrentIndex > 0) sponsorsCurrentIndex--;
+                updateCarousel('sponsors', sponsorsCurrentIndex, sponsorsItemsPerView, sponsors.length);
             });
-            
+            document.getElementById('sponsorsNextBtn')?.addEventListener('click', () => {
+                const maxPage = Math.ceil(sponsors.length / sponsorsItemsPerView) - 1;
+                if (sponsorsCurrentIndex < maxPage) sponsorsCurrentIndex++;
+                updateCarousel('sponsors', sponsorsCurrentIndex, sponsorsItemsPerView, sponsors.length);
+            });
+
             // Mobile menu
-            const mobileMenuBtn = document.querySelector('.mobile-menu');
+            const mobileBtn = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    if (navLinks.style.display === 'flex') {
-                        navLinks.style.display = 'none';
-                    } else {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.position = 'absolute';
-                        navLinks.style.top = '70px';
-                        navLinks.style.left = '0';
-                        navLinks.style.right = '0';
-                        navLinks.style.backgroundColor = 'white';
-                        navLinks.style.padding = '1.5rem';
-                        navLinks.style.gap = '1rem';
-                        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                        navLinks.style.borderBottom = '2px solid rgba(212, 175, 55, 0.3)';
-                    }
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    if (navLinks.style.display === 'flex') navLinks.style.display = 'none';
+                    else { navLinks.style.display = 'flex'; navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '70px'; navLinks.style.left = '0'; navLinks.style.right = '0'; navLinks.style.backgroundColor = 'white'; navLinks.style.padding = '1.5rem'; navLinks.style.gap = '1rem'; navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; }
                 });
             }
-            
-            function resetMobileMenu() {
-                if (window.innerWidth > 768) {
-                    if (navLinks) {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'row';
-                        navLinks.style.position = 'relative';
-                        navLinks.style.top = 'auto';
-                        navLinks.style.left = 'auto';
-                        navLinks.style.right = 'auto';
-                        navLinks.style.backgroundColor = 'transparent';
-                        navLinks.style.padding = '0';
-                        navLinks.style.boxShadow = 'none';
-                    }
-                } else {
-                    if (navLinks && navLinks.style.display !== 'flex') {
-                        navLinks.style.display = 'none';
-                    }
-                }
-            }
-            
-            window.addEventListener('resize', resetMobileMenu);
-            resetMobileMenu();
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && navLinks) { navLinks.style.display = 'flex'; navLinks.style.flexDirection = 'row'; navLinks.style.position = 'relative'; navLinks.style.backgroundColor = 'transparent'; navLinks.style.padding = '0'; navLinks.style.boxShadow = 'none'; }
+                else if (navLinks && navLinks.style.display !== 'flex') navLinks.style.display = 'none';
+            });
         });
     </script>
 </body>
